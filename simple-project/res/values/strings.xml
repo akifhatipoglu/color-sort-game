@@ -6,5 +6,8 @@
     <string name="button_newGame">New Game</string>
     <string name="button_score">Score</string>
     <string name="button_exit">Exit</string>
+    <string name="button_easy">Easy</string>
+    <string name="button_medium">Medium</string>
+    <string name="button_hard">Hard</string>
 
 </resources>
