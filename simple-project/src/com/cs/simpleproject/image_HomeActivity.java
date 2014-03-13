@@ -16,7 +16,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 public class image_HomeActivity extends image_BaseActivity {
 
 	private ArrayList<String> imageUrls;
-
+	Button imagegrid;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,7 +37,8 @@ public class image_HomeActivity extends image_BaseActivity {
 			imageUrls.add(imagecursor.getString(dataColumnIndex));
 		}
 
-		Button imagegrid = (Button) findViewById(R.id.buton_grit);
+		imagegrid = (Button) findViewById(R.id.buton_grit);
+		//imagegrid.setClickable(true);
 		imagegrid.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -48,7 +49,14 @@ public class image_HomeActivity extends image_BaseActivity {
 			}
 		});
 	}
+	
+	//Auto click
+	@Override
+    protected void onResume() {
 
+		imagegrid.performClick();
+        super.onResume();
+    }
 	@Override
 	public void onBackPressed() {
 		imageLoader.stop();
