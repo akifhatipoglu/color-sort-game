@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -56,22 +55,22 @@ public class Activity_NewGame extends Activity {
 		 * */
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("Choose section");
-		builder.setSingleChoiceItems(items,-1,
+		builder.setSingleChoiceItems(items, -1,
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						switch (which) {
 						case 0:
-							gotoimageactivity(1,level);
+							gotoimageactivity(1, level);
 							break;
 						case 1:
-							gotoimageactivity(2,level);
+							gotoimageactivity(2, level);
 							break;
 						case 2:
-							gotoimageactivity(3,level);
+							gotoimageactivity(3, level);
 							break;
 						case 3:
-							gotoimageactivity(4,level);
+							gotoimageactivity(4, level);
 							break;
 						default:
 							break;
@@ -79,21 +78,19 @@ public class Activity_NewGame extends Activity {
 						dialog.dismiss();
 					}
 
-					
 				});
-		
 
 		return builder.create();
 	}
 
 	/*
-	 * level ve section pun extra ile iletilmeli oyun kýsmýna
-	 * **/
+	 * level ve section pun extra ile iletilmeli oyun kýsmýna *
+	 */
 	private void gotoimageactivity(int section, int level) {
 		if (level == LEVEL_EASY) {
 			Intent intent = new Intent(Activity_NewGame.this,
 					image_HomeActivity.class);
-			
+
 			startActivity(intent);
 		}
 		if (level == LEVEL_MEDIUM) {
@@ -107,8 +104,7 @@ public class Activity_NewGame extends Activity {
 			startActivity(intent);
 		}
 	}
-	
-	
+
 	@Override
 	protected Dialog onCreateDialog(int id) {
 		Dialog dialog = null;

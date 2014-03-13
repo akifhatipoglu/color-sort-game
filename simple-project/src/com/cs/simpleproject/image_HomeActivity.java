@@ -17,6 +17,7 @@ public class image_HomeActivity extends image_BaseActivity {
 
 	private ArrayList<String> imageUrls;
 	Button imagegrid;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class image_HomeActivity extends image_BaseActivity {
 		}
 
 		imagegrid = (Button) findViewById(R.id.buton_grit);
-		//imagegrid.setClickable(true);
+		// imagegrid.setClickable(true);
 		imagegrid.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -49,14 +50,15 @@ public class image_HomeActivity extends image_BaseActivity {
 			}
 		});
 	}
-	
-	//Auto click
+
+	// Auto click
 	@Override
-    protected void onResume() {
+	protected void onResume() {
 
 		imagegrid.performClick();
-        super.onResume();
-    }
+		super.onResume();
+	}
+
 	@Override
 	public void onBackPressed() {
 		imageLoader.stop();
