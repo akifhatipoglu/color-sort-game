@@ -9,6 +9,9 @@
     <string name="button_easy">Easy</string>
     <string name="button_medium">Medium</string>
     <string name="button_hard">Hard</string>
+    <string name="Textview_1">Select The Algorithm</string>
+    <string name="button_scalar">Scalar Quantization</string>
+    <string name="button_median">Median Cut</string>
     
 
     

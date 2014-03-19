@@ -17,11 +17,14 @@ public class image_HomeActivity extends image_BaseActivity {
 
 	private ArrayList<String> imageUrls;
 	Button imagegrid;
+	Bundle gelenVeri;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ac_home);
+		Intent intent=getIntent();
+		 gelenVeri=intent.getExtras();
 		imageLoader.init(ImageLoaderConfiguration.createDefault(this));
 
 		final String[] columns = { MediaColumns.DATA, BaseColumns._ID };
@@ -46,6 +49,9 @@ public class image_HomeActivity extends image_BaseActivity {
 				Intent intent = new Intent(image_HomeActivity.this,
 						image_GridActivity.class);
 				intent.putExtra("images", imageUrls);
+				intent.putExtra("level",gelenVeri.getInt("level"));
+				intent.putExtra("section",gelenVeri.getInt("section"));
+				intent.putExtra("algorithm",gelenVeri.getInt("algorithm"));
 				startActivity(intent);
 			}
 		});
@@ -62,6 +68,9 @@ public class image_HomeActivity extends image_BaseActivity {
 	@Override
 	public void onBackPressed() {
 		imageLoader.stop();
-		super.onBackPressed();
+		Intent setIntent = new Intent(this, Activity_SelectAlgorithm.class);
+		setIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+		setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		startActivity(setIntent);
 	}
 }

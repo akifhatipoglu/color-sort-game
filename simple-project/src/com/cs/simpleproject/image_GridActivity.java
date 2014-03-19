@@ -2,8 +2,10 @@ package com.cs.simpleproject;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -22,12 +24,22 @@ public class image_GridActivity extends image_AbsListViewBaseActivity {
 	String[] imageUrls;
 	private ArrayList<String> imageUrls1;
 	DisplayImageOptions options;
-
+	private int level=0,section=0,algorithm=0;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ac_image_grid);
-
+		
+		Intent intent=getIntent();
+		Bundle gelenVeri=intent.getExtras(); 
+		level=gelenVeri.getInt("level");
+		section=gelenVeri.getInt("section");
+		algorithm=gelenVeri.getInt("algorithm");
+		
+		Log.i("aaaaaa",""+level);
+		Log.i("aaaaaa",""+section);
+		Log.i("aaaaaa",""+algorithm);
+		
 		Bundle bundle = getIntent().getExtras();
 		// imageUrls = bundle.getStringArray(Extra.IMAGES);
 		imageUrls1 = bundle.getStringArrayList("images");

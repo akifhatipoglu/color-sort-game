@@ -89,18 +89,23 @@ public class Activity_NewGame extends Activity {
 	private void gotoimageactivity(int section, int level) {
 		if (level == LEVEL_EASY) {
 			Intent intent = new Intent(Activity_NewGame.this,
-					image_HomeActivity.class);
-
+					Activity_SelectAlgorithm.class);
+			intent.putExtra("level",level);
+			intent.putExtra("section",section);
 			startActivity(intent);
 		}
 		if (level == LEVEL_MEDIUM) {
 			Intent intent = new Intent(Activity_NewGame.this,
-					image_HomeActivity.class);
+					Activity_SelectAlgorithm.class);
+			intent.putExtra("level",level);
+			intent.putExtra("section",section);
 			startActivity(intent);
 		}
 		if (level == LEVEL_HARD) {
 			Intent intent = new Intent(Activity_NewGame.this,
-					image_HomeActivity.class);
+					Activity_SelectAlgorithm.class);
+			intent.putExtra("level",level);
+			intent.putExtra("section",section);
 			startActivity(intent);
 		}
 	}
@@ -128,7 +133,6 @@ public class Activity_NewGame extends Activity {
 	@Override
 	public void onBackPressed() {
 		Intent setIntent = new Intent(this, Activity_Main.class);
-
 		setIntent.addCategory(Intent.CATEGORY_HOME);
 		setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(setIntent);

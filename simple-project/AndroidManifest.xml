@@ -28,13 +28,21 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        
+        <activity android:name=".Activity_SelectAlgorithm"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.SelectAlgorithm" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
          <activity
             android:name=".image_GridActivity"
             android:label="@string/app_name" />
          <activity
             android:name=".image_HomeActivity"
             android:label="@string/app_name" />
+          
+         
         
     </application>
 
