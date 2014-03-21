@@ -115,6 +115,7 @@ public class AsyncTask_ScalarQuantization extends  AsyncTask<String,String,List<
 		for (int i = 0; i < h; i++) {
 			for (int j = 0; j < w; j++) {
 				int pixel = image.getPixel(j,i);
+				System.out.println(pixel);
 				String pixs = Integer.toHexString(pixel);
 				printPixelARGB(pixel);
 				//a.add(pixs);

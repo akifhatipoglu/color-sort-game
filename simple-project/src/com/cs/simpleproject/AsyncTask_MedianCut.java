@@ -18,6 +18,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.ColorMatrix;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -36,6 +37,7 @@ public class AsyncTask_MedianCut extends AsyncTask<String, String, List<String>>
 		super();
 		this.context = context;
 		this.file_path=path;
+		
 	}
 	@Override
 	protected void onPreExecute() {
