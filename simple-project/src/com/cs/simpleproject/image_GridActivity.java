@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingProgressListener;
@@ -64,6 +65,27 @@ public class image_GridActivity extends image_AbsListViewBaseActivity {
 	private void startImagePagerActivity(int position) {
 		System.out.println("Clicked me " + position + " as "
 				+ imageUrls1.get(position));
+		Log.i("aaaaaa","file://"+imageUrls1.get(position));
+		
+		if(algorithm==1)
+		{
+			/*AsyncTask_ScalarQuantization task = new AsyncTask_ScalarQuantization(this,imageUrls1.get(position));
+			task.execute();*/
+			
+			AsyncTask_ScalarQuantization task = new AsyncTask_ScalarQuantization(this,imageUrls1.get(position));
+			task.execute();
+			
+			/*Intent intent = new Intent(this, Scalar.class);
+			intent.putExtra("yey",imageUrls1.get(position));
+			startActivity(intent);
+			*/
+		}
+		if(algorithm==2)
+		{
+			AsyncTask_MedianCut task = new AsyncTask_MedianCut(this,imageUrls1.get(position));
+			task.execute();
+			
+		}
 		/*
 		 * Intent intent = new Intent(this, ImagePagerActivity.class);
 		 * intent.putExtra(Extra.IMAGES, imageUrls);
