@@ -198,10 +198,10 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,OnD
 	        	finishTime=finishTime/60;
 	        	System.out.println(finishTime);
 	        	PUAN-=finishTime;
-	        	Toast.makeText(this,"Congratulations! The game is over. Your Score: "+PUAN,Toast.LENGTH_LONG).show();}
-	        	/*db.addScore("Level:Easy Section:1", PUAN);
+	        	Toast.makeText(this,"Congratulations! The game is over. Your Score: "+PUAN,Toast.LENGTH_LONG).show();
+	        	db.addScore("Level:Easy Section:1", PUAN);
 	        	try {
-					Thread.sleep(500);
+					Thread.sleep(1500);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -209,7 +209,8 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,OnD
 	        	Intent intent = new Intent(Activity_Level_Easy.this,
 						Activity_Main.class);
 				startActivity(intent);
-				Activity_Level_Easy.this.finish();*/
+				Activity_Level_Easy.this.finish();
+	        }
 	        }else{
 	        	owner.removeView(view);
 	        	color_layout.addView(view);

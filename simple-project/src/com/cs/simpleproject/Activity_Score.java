@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingDeque;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -24,5 +25,12 @@ public class Activity_Score extends Activity {
 	lt.setAdapter(as);
 	
 	
+	}
+	@Override
+	public void onBackPressed() {
+		Intent intent = new Intent(Activity_Score.this,
+				Activity_Main.class);
+		startActivity(intent);
+		Activity_Score.this.finish();
 	}
 }
