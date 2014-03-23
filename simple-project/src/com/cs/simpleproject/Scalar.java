@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -23,122 +22,130 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class Scalar  extends Activity{
+public class Scalar extends Activity {
 	private static int IMG_WIDTH = 400;
 	private static int IMG_HEIGHT = 300;
-	String file_path="";
+	String file_path = "";
 	Set<String> s = new HashSet<String>();
 	List<String> a = new LinkedList<String>();
 	private ArrayAdapter<String> adapter;
 	private ListView list;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.list);
-		
-		Intent intent=getIntent();
-		Bundle gelenVeri=intent.getExtras(); 
-		file_path=gelenVeri.getString("yey");
-		
-		File image_path=new File(file_path);
-		 Log.i("aaaaaa","ain backgrounda im");
-		if(image_path.exists())
-		{
-			 Log.i("aaaaaa","içerdeyim");
-			 Bitmap myBitmap = BitmapFactory.decodeFile(image_path.getAbsolutePath());
-			 IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.1);
-			 IMG_WIDTH = (int) (myBitmap.getWidth() * 0.1);
-			 
-			 Bitmap resized = Bitmap.createScaledBitmap(myBitmap,IMG_WIDTH ,IMG_HEIGHT, false);
-			 Log.i("aaaaaa","resized"+resized.getWidth()+","+resized.getHeight());
-			 
-			 Bitmap rgb=reduceColorDepth(resized,8);
-			 Log.i("aaaa",""+ rgb.getConfig());
-			 fireOnImage(rgb);
-			 
-			 System.out.println("he" + IMG_HEIGHT + " Wid " + IMG_WIDTH);
-			 System.out.println("HashSet size: " + s.size());
-			 System.out.println("LinkedList size: " + a.size());
-			 System.out.println(s);
-				Log.i("aaaaaa","HashSet size:"+s.size());
-				Log.i("aaaaaa","LinkedList size:"+a.size());
-				
-				int count = 0;
 
-				Map<String, Integer> treeMap = new TreeMap<String, Integer>();
+		Intent intent = getIntent();
+		Bundle gelenVeri = intent.getExtras();
+		file_path = gelenVeri.getString("yey");
 
-				for (String str : s) {
-					count = 0;
-					for (int j = 0; j < a.size(); j++) {
-						if (str.equals(a.get(j))) {
-							count++;
-						}
+		File image_path = new File(file_path);
+		Log.i("aaaaaa", "ain backgrounda im");
+		if (image_path.exists()) {
+			Log.i("aaaaaa", "içerdeyim");
+			Bitmap myBitmap = BitmapFactory.decodeFile(image_path
+					.getAbsolutePath());
+			IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.1);
+			IMG_WIDTH = (int) (myBitmap.getWidth() * 0.1);
+
+			Bitmap resized = Bitmap.createScaledBitmap(myBitmap, IMG_WIDTH,
+					IMG_HEIGHT, false);
+			Log.i("aaaaaa",
+					"resized" + resized.getWidth() + "," + resized.getHeight());
+
+			Bitmap rgb = reduceColorDepth(resized, 8);
+			Log.i("aaaa", "" + rgb.getConfig());
+			fireOnImage(rgb);
+
+			System.out.println("he" + IMG_HEIGHT + " Wid " + IMG_WIDTH);
+			System.out.println("HashSet size: " + s.size());
+			System.out.println("LinkedList size: " + a.size());
+			System.out.println(s);
+			Log.i("aaaaaa", "HashSet size:" + s.size());
+			Log.i("aaaaaa", "LinkedList size:" + a.size());
+
+			int count = 0;
+
+			Map<String, Integer> treeMap = new TreeMap<String, Integer>();
+
+			for (String str : s) {
+				count = 0;
+				for (int j = 0; j < a.size(); j++) {
+					if (str.equals(a.get(j))) {
+						count++;
 					}
-					System.out.println(str + " sayisi:" + count);
-					treeMap.put(str, count);
+				}
+				System.out.println(str + " sayisi:" + count);
+				treeMap.put(str, count);
+			}
+
+			System.out.println("**********");
+			System.out.println(treeMap);
+			System.out.println("" + treeMap.size());
+			System.out.println("***************");
+			Map<String, String> sortedMap = sortByComparator(treeMap);
+			System.out.println(sortedMap);
+			System.out.println("" + sortedMap.size());
+			/*
+			 * List<String> as=new LinkedList<String>(); for (int i = 0; i <
+			 * sortedMap.size(); i++) { as.add(sortedMap.get(0)); } list =
+			 * (ListView) findViewById(R.id.listView2);
+			 * 
+			 * adapter = new
+			 * ArrayAdapter<String>(getApplicationContext(),android
+			 * .R.layout.simple_list_item_1,as); list.setAdapter(adapter);
+			 */
+		}
+
+	}
+
+	public Bitmap reduceColorDepth(Bitmap src, int bitOffset) {
+		// get image original size
+		int width = src.getWidth();
+		int height = src.getHeight();
+		// toplam=width*height;
+		// create output bitmap
+		Bitmap bmOut = Bitmap.createBitmap(width, height, src.getConfig());
+		// color information
+		int A, R, G, B;
+		int pixel;
+
+		// scan through all pixels
+		for (int x = 0; x < width; ++x) {
+			for (int y = 0; y < height; ++y) {
+				// get pixel color
+				pixel = src.getPixel(x, y);
+				A = Color.alpha(pixel);
+				R = Color.red(pixel);
+				G = Color.green(pixel);
+				B = Color.blue(pixel);
+
+				// round-off color offset
+				R = ((R + (bitOffset / 2))
+						- ((R + (bitOffset / 2)) % bitOffset) - 1);
+				if (R < 0) {
+					R = 0;
+				}
+				G = ((G + (bitOffset / 2))
+						- ((G + (bitOffset / 2)) % bitOffset) - 1);
+				if (G < 0) {
+					G = 0;
+				}
+				B = ((B + (bitOffset / 2))
+						- ((B + (bitOffset / 2)) % bitOffset) - 1);
+				if (B < 0) {
+					B = 0;
 				}
 
-				System.out.println("**********");
-				System.out.println(treeMap);
-				System.out.println("" + treeMap.size());
-				System.out.println("***************");
-				Map<String, String> sortedMap = sortByComparator(treeMap);
-				System.out.println(sortedMap);
-				System.out.println("" + sortedMap.size());
-				/*List<String> as=new LinkedList<String>();
-				for (int i = 0; i < sortedMap.size(); i++) {
-					as.add(sortedMap.get(0));
-				}
-				list = (ListView) findViewById(R.id.listView2);
-				
-				adapter = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_list_item_1,as);
-				list.setAdapter(adapter);
-				*/
+				// set pixel color to output bitmap
+				bmOut.setPixel(x, y, Color.argb(A, R, G, B));
+			}
 		}
-		
-		
+		// return final image
+		return bmOut;
 	}
-	public Bitmap reduceColorDepth(Bitmap src,int bitOffset) {
-	     // get image original size
-	     int width = src.getWidth();
-	     int height = src.getHeight();
-	     //toplam=width*height;
-	     // create output bitmap
-	     Bitmap bmOut = Bitmap.createBitmap(width, height, src.getConfig());
-	     // color information
-	     int A, R, G, B;
-	     int pixel;
-	  
-	     // scan through all pixels
-	     for(int x = 0; x < width; ++x) {
-	         for(int y = 0; y < height; ++y) {
-	             // get pixel color
-	             pixel = src.getPixel(x, y);
-	             A = Color.alpha(pixel);
-	             R = Color.red(pixel);
-	             G = Color.green(pixel);
-	             B = Color.blue(pixel);
-	             
-	             // round-off color offset
-	             R = ((R + (bitOffset / 2)) - ((R + (bitOffset / 2)) % bitOffset) - 1);
-	             if(R < 0) { R = 0; }
-	             G = ((G + (bitOffset / 2)) - ((G + (bitOffset / 2)) % bitOffset) - 1);
-	             if(G < 0) { G = 0; }
-	             B = ((B + (bitOffset / 2)) - ((B + (bitOffset / 2)) % bitOffset) - 1);
-	             if(B < 0) { B = 0; }
-	          
-	            
-	             
-	             // set pixel color to output bitmap
-	             bmOut.setPixel(x, y, Color.argb(A, R, G, B));
-	         }
-	     }
-	  // return final image
-	     return bmOut;
-	 }
-	
-	
-	
+
 	private static Map sortByComparator(Map unsortMap) {
 
 		List list = new LinkedList(unsortMap.entrySet());
@@ -169,11 +176,11 @@ public class Scalar  extends Activity{
 
 		for (int i = 0; i < h; i++) {
 			for (int j = 0; j < w; j++) {
-				int pixel = image.getPixel(j,i);
+				int pixel = image.getPixel(j, i);
 				String pixs = Integer.toHexString(pixel);
 				printPixelARGB(pixel);
-				//a.add(pixs);
-				//s.add(pixs);
+				// a.add(pixs);
+				// s.add(pixs);
 			}
 		}
 	}
@@ -187,7 +194,8 @@ public class Scalar  extends Activity{
 		a.add(hex);
 		s.add(hex);
 		System.out.println("argb: " + red + ", " + green + ", " + blue);
-		System.out.println("argb: " + Integer.toHexString(pixel) + " hex: "+ hex);
+		System.out.println("argb: " + Integer.toHexString(pixel) + " hex: "
+				+ hex);
 
 	}
 }

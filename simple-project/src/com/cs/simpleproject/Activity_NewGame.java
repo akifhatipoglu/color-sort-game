@@ -90,22 +90,22 @@ public class Activity_NewGame extends Activity {
 		if (level == LEVEL_EASY) {
 			Intent intent = new Intent(Activity_NewGame.this,
 					Activity_SelectAlgorithm.class);
-			intent.putExtra("level",level);
-			intent.putExtra("section",section);
+			intent.putExtra("level", level);
+			intent.putExtra("section", section);
 			startActivity(intent);
 		}
 		if (level == LEVEL_MEDIUM) {
 			Intent intent = new Intent(Activity_NewGame.this,
 					Activity_SelectAlgorithm.class);
-			intent.putExtra("level",level);
-			intent.putExtra("section",section);
+			intent.putExtra("level", level);
+			intent.putExtra("section", section);
 			startActivity(intent);
 		}
 		if (level == LEVEL_HARD) {
 			Intent intent = new Intent(Activity_NewGame.this,
 					Activity_SelectAlgorithm.class);
-			intent.putExtra("level",level);
-			intent.putExtra("section",section);
+			intent.putExtra("level", level);
+			intent.putExtra("section", section);
 			startActivity(intent);
 		}
 	}

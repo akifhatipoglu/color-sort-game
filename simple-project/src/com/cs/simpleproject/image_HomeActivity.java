@@ -23,8 +23,8 @@ public class image_HomeActivity extends image_BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ac_home);
-		Intent intent=getIntent();
-		 gelenVeri=intent.getExtras();
+		Intent intent = getIntent();
+		gelenVeri = intent.getExtras();
 		imageLoader.init(ImageLoaderConfiguration.createDefault(this));
 
 		final String[] columns = { MediaColumns.DATA, BaseColumns._ID };
@@ -49,9 +49,9 @@ public class image_HomeActivity extends image_BaseActivity {
 				Intent intent = new Intent(image_HomeActivity.this,
 						image_GridActivity.class);
 				intent.putExtra("images", imageUrls);
-				intent.putExtra("level",gelenVeri.getInt("level"));
-				intent.putExtra("section",gelenVeri.getInt("section"));
-				intent.putExtra("algorithm",gelenVeri.getInt("algorithm"));
+				intent.putExtra("level", gelenVeri.getInt("level"));
+				intent.putExtra("section", gelenVeri.getInt("section"));
+				intent.putExtra("algorithm", gelenVeri.getInt("algorithm"));
 				startActivity(intent);
 			}
 		});

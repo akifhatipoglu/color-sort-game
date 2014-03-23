@@ -18,107 +18,110 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.ColorMatrix;
 import android.os.AsyncTask;
 import android.util.Log;
 
-public class AsyncTask_MedianCut extends AsyncTask<String, String, List<String>>{
-	
+public class AsyncTask_MedianCut extends
+		AsyncTask<String, String, List<String>> {
+
 	private Context context;
 	private ProgressDialog progressDialog;
 	private static int IMG_WIDTH = 400;
 	private static int IMG_HEIGHT = 300;
-	String file_path="";
+	String file_path = "";
 	Set<String> s = new HashSet<String>();
 	List<String> a = new LinkedList<String>();
 	Bitmap sub1 = null, sub2 = null, sub3 = null, sub4 = null;
-	
-	public AsyncTask_MedianCut(Context context,String path) {
+
+	public AsyncTask_MedianCut(Context context, String path) {
 		super();
 		this.context = context;
-		this.file_path=path;
-		
+		this.file_path = path;
+
 	}
+
 	@Override
 	protected void onPreExecute() {
-		progressDialog = ProgressDialog.show(context, "Loading Please Wait,Image Processing",
+		progressDialog = ProgressDialog.show(context,
+				"Loading Please Wait,Image Processing",
 				"Thank You For Your Cooperation...", true);
 	}
+
 	@Override
 	protected List<String> doInBackground(String... params) {
 		return MedianCut(context);
 	}
-	
-	
+
 	@Override
 	protected void onProgressUpdate(String... values) {
 		progressDialog.setMessage("Thank You For Your Cooperation...");
 	}
-	
+
 	@Override
 	protected void onPostExecute(List<String> result) {
 		progressDialog.cancel();
-		
+
 	}
-	
+
 	private List<String> MedianCut(Context context2) {
-		List<String> getlist=null;
-		File image_path=new File(file_path);
-		Log.i("aaaaaa","ain backgrounda im");
-		if(image_path.exists())
-		{
-			 Bitmap myBitmap = BitmapFactory.decodeFile(image_path.getAbsolutePath());
-			 int values = (int) (myBitmap.getWidth() * 0.01);
-				IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.01 * values);
-				values = (int) (myBitmap.getHeight() * 0.01);
-				IMG_WIDTH = (int) (myBitmap.getWidth() * 0.01 * values);
-				
-				Bitmap resized = Bitmap.createScaledBitmap(myBitmap,IMG_WIDTH ,IMG_HEIGHT, false);
-				 Log.i("aaaaaa","resized"+resized.getWidth()+","+resized.getHeight());
-				 
-				//image24BitsTO8Bits();
+		List<String> getlist = null;
+		File image_path = new File(file_path);
+		Log.i("aaaaaa", "ain backgrounda im");
+		if (image_path.exists()) {
+			Bitmap myBitmap = BitmapFactory.decodeFile(image_path
+					.getAbsolutePath());
+			int values = (int) (myBitmap.getWidth() * 0.01);
+			IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.01 * values);
+			values = (int) (myBitmap.getHeight() * 0.01);
+			IMG_WIDTH = (int) (myBitmap.getWidth() * 0.01 * values);
 
-				getImageHashSet(resized);
-				
-				System.out.println("he" + IMG_HEIGHT + " Wid " + IMG_WIDTH);
-				 System.out.println("HashSet size: " + s.size());
-				 System.out.println("LinkedList size: " + a.size());
-				 System.out.println(s);
-				
-				 int count = 0;
-					Map<String, Integer> treeMap = new TreeMap<String, Integer>();
+			Bitmap resized = Bitmap.createScaledBitmap(myBitmap, IMG_WIDTH,
+					IMG_HEIGHT, false);
+			Log.i("aaaaaa",
+					"resized" + resized.getWidth() + "," + resized.getHeight());
 
-					for (String str : s) {
-						count = 0;
-						for (int j = 0; j < a.size(); j++) {
-							if (str.equals(a.get(j))) {
-								count++;
-							}
-						}
-						System.out.println(str + " sayisi:" + count);
-						treeMap.put(str, count);
+			// image24BitsTO8Bits();
+
+			getImageHashSet(resized);
+
+			System.out.println("he" + IMG_HEIGHT + " Wid " + IMG_WIDTH);
+			System.out.println("HashSet size: " + s.size());
+			System.out.println("LinkedList size: " + a.size());
+			System.out.println(s);
+
+			int count = 0;
+			Map<String, Integer> treeMap = new TreeMap<String, Integer>();
+
+			for (String str : s) {
+				count = 0;
+				for (int j = 0; j < a.size(); j++) {
+					if (str.equals(a.get(j))) {
+						count++;
 					}
-
-					System.out.println("**********");
-					System.out.println(treeMap);
-					System.out.println("" + treeMap.size());
-					System.out.println("***************");
-					Map<String, Integer> sortedMap = sortByComparator(treeMap);
-					System.out.println(sortedMap);
-					System.out.println("" + sortedMap.size());
-
-					getSubImage(resized);
-
-					recursiveMediancut(12,resized);
-					
-					getlist= new ArrayList<String>(sortedMap.keySet());
-					//burada sorted aþaðýdaki map olacak	
 				}
-		publishProgress();
-			return getlist;
+				System.out.println(str + " sayisi:" + count);
+				treeMap.put(str, count);
+			}
+
+			System.out.println("**********");
+			System.out.println(treeMap);
+			System.out.println("" + treeMap.size());
+			System.out.println("***************");
+			Map<String, Integer> sortedMap = sortByComparator(treeMap);
+			System.out.println(sortedMap);
+			System.out.println("" + sortedMap.size());
+
+			getSubImage(resized);
+
+			recursiveMediancut(12, resized);
+
+			getlist = new ArrayList<String>(sortedMap.keySet());
+			// burada sorted aþaðýdaki map olacak
 		}
-	
-	
+		publishProgress();
+		return getlist;
+	}
+
 	public void getImageHashSet(Bitmap image) {
 		int w = image.getWidth();
 		int h = image.getHeight();
@@ -126,7 +129,7 @@ public class AsyncTask_MedianCut extends AsyncTask<String, String, List<String>>
 
 		for (int i = 0; i < h; i++) {
 			for (int j = 0; j < w; j++) {
-				int pixel = image.getPixel(j,i);
+				int pixel = image.getPixel(j, i);
 				String pixs = Integer.toHexString(pixel);
 				int red = (pixel >> 16) & 0xff;
 				int green = (pixel >> 8) & 0xff;
@@ -137,7 +140,7 @@ public class AsyncTask_MedianCut extends AsyncTask<String, String, List<String>>
 			}
 		}
 	}
-	
+
 	private static Map sortByComparator(Map unsortMap) {
 
 		List list = new LinkedList(unsortMap.entrySet());
@@ -160,24 +163,27 @@ public class AsyncTask_MedianCut extends AsyncTask<String, String, List<String>>
 		}
 		return sortedMap;
 	}
-	
 
 	public void getSubImage(Bitmap rgb) {
-		sub1=Bitmap.createBitmap(rgb,0, 0, rgb.getWidth() / 2, rgb.getHeight() / 2);
-		sub2=Bitmap.createBitmap(rgb, (rgb.getWidth() / 2), 0, rgb.getWidth() / 2,(rgb.getHeight() / 2));
-		sub3=Bitmap.createBitmap(rgb,0, rgb.getHeight() / 2, rgb.getWidth() / 2,rgb.getHeight() / 2);
-		sub4=Bitmap.createBitmap(rgb, rgb.getWidth() / 2, rgb.getHeight() / 2,rgb.getWidth() / 2, rgb.getHeight() / 2);
-		/*sub1 = rgb.getSubimage(0, 0, rgb.getWidth() / 2, rgb.getHeight() / 2);
-		sub2 = rgb.getSubimage((rgb.getWidth() / 2), 0, rgb.getWidth() / 2,
-				(rgb.getHeight() / 2));
-		sub3 = rgb.getSubimage(0, rgb.getHeight() / 2, rgb.getWidth() / 2,
+		sub1 = Bitmap.createBitmap(rgb, 0, 0, rgb.getWidth() / 2,
 				rgb.getHeight() / 2);
-		sub4 = rgb.getSubimage(rgb.getWidth() / 2, rgb.getHeight() / 2,
-				rgb.getWidth() / 2, rgb.getHeight() / 2);*/
+		sub2 = Bitmap.createBitmap(rgb, (rgb.getWidth() / 2), 0,
+				rgb.getWidth() / 2, (rgb.getHeight() / 2));
+		sub3 = Bitmap.createBitmap(rgb, 0, rgb.getHeight() / 2,
+				rgb.getWidth() / 2, rgb.getHeight() / 2);
+		sub4 = Bitmap.createBitmap(rgb, rgb.getWidth() / 2,
+				rgb.getHeight() / 2, rgb.getWidth() / 2, rgb.getHeight() / 2);
+		/*
+		 * sub1 = rgb.getSubimage(0, 0, rgb.getWidth() / 2, rgb.getHeight() /
+		 * 2); sub2 = rgb.getSubimage((rgb.getWidth() / 2), 0, rgb.getWidth() /
+		 * 2, (rgb.getHeight() / 2)); sub3 = rgb.getSubimage(0, rgb.getHeight()
+		 * / 2, rgb.getWidth() / 2, rgb.getHeight() / 2); sub4 =
+		 * rgb.getSubimage(rgb.getWidth() / 2, rgb.getHeight() / 2,
+		 * rgb.getWidth() / 2, rgb.getHeight() / 2);
+		 */
 	}
-	
 
-	public void recursiveMediancut(int level,Bitmap resized) {
+	public void recursiveMediancut(int level, Bitmap resized) {
 		int colorscala = s.size();// 86
 		int listsize = a.size();
 		int thelargest = colorscala;
@@ -246,7 +252,7 @@ public class AsyncTask_MedianCut extends AsyncTask<String, String, List<String>>
 		System.out.println("" + sortedMap.size());
 
 	}
-	
+
 	public int getSubImageColorNumber(Bitmap rgb) {
 		set.clear();
 
@@ -256,7 +262,7 @@ public class AsyncTask_MedianCut extends AsyncTask<String, String, List<String>>
 
 		for (int i = 0; i < h; i++) {
 			for (int j = 0; j < w; j++) {
-				int pixel = rgb.getPixel(j,i);
+				int pixel = rgb.getPixel(j, i);
 				String pixs = Integer.toHexString(pixel);
 				int red = (pixel >> 16) & 0xff;
 				int green = (pixel >> 8) & 0xff;
@@ -283,7 +289,7 @@ public class AsyncTask_MedianCut extends AsyncTask<String, String, List<String>>
 
 		for (int i = 0; i < h; i++) {
 			for (int j = 0; j < w; j++) {
-				int pixel = rgb.getPixel(j,i);
+				int pixel = rgb.getPixel(j, i);
 				String pixs = Integer.toHexString(pixel);
 				int red = (pixel >> 16) & 0xff;
 				int green = (pixel >> 8) & 0xff;
@@ -296,7 +302,4 @@ public class AsyncTask_MedianCut extends AsyncTask<String, String, List<String>>
 
 	}
 
-
 }
-
-

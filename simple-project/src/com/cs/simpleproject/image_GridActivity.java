@@ -25,22 +25,23 @@ public class image_GridActivity extends image_AbsListViewBaseActivity {
 	String[] imageUrls;
 	private ArrayList<String> imageUrls1;
 	DisplayImageOptions options;
-	private int level=0,section=0,algorithm=0;
+	private int level = 0, section = 0, algorithm = 0;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.ac_image_grid);
-		
-		Intent intent=getIntent();
-		Bundle gelenVeri=intent.getExtras(); 
-		level=gelenVeri.getInt("level");
-		section=gelenVeri.getInt("section");
-		algorithm=gelenVeri.getInt("algorithm");
-		
-		Log.i("aaaaaa",""+level);
-		Log.i("aaaaaa",""+section);
-		Log.i("aaaaaa",""+algorithm);
-		
+
+		Intent intent = getIntent();
+		Bundle gelenVeri = intent.getExtras();
+		level = gelenVeri.getInt("level");
+		section = gelenVeri.getInt("section");
+		algorithm = gelenVeri.getInt("algorithm");
+
+		Log.i("aaaaaa", "" + level);
+		Log.i("aaaaaa", "" + section);
+		Log.i("aaaaaa", "" + algorithm);
+
 		Bundle bundle = getIntent().getExtras();
 		// imageUrls = bundle.getStringArray(Extra.IMAGES);
 		imageUrls1 = bundle.getStringArrayList("images");
@@ -65,19 +66,19 @@ public class image_GridActivity extends image_AbsListViewBaseActivity {
 	private void startImagePagerActivity(int position) {
 		System.out.println("Clicked me " + position + " as "
 				+ imageUrls1.get(position));
-		Log.i("aaaaaa","file://"+imageUrls1.get(position));
-		
-		if(algorithm==1)
-		{
-			AsyncTask_ScalarQuantization task = new AsyncTask_ScalarQuantization(this,imageUrls1.get(position),level,section);
+		Log.i("aaaaaa", "file://" + imageUrls1.get(position));
+
+		if (algorithm == 1) {
+			AsyncTask_ScalarQuantization task = new AsyncTask_ScalarQuantization(
+					this, imageUrls1.get(position), level, section);
 			task.execute();
-			
+
 		}
-		if(algorithm==2)
-		{
-			AsyncTask_MedianCut task = new AsyncTask_MedianCut(this,imageUrls1.get(position));
+		if (algorithm == 2) {
+			AsyncTask_MedianCut task = new AsyncTask_MedianCut(this,
+					imageUrls1.get(position));
 			task.execute();
-			
+
 		}
 		/*
 		 * Intent intent = new Intent(this, ImagePagerActivity.class);
