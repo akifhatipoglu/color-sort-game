@@ -65,11 +65,18 @@ public class AsyncTask_ScalarQuantization extends
 
 		ArrayList<String> result1 = new ArrayList<String>(result);
 		if (level == 0) {
+			if(section==1){
 			Intent intent = new Intent(context, Activity_Level_Easy.class);
 			intent.putExtra("result", result1);
 			intent.putExtra("level", level);
 			intent.putExtra("section", section);
-			context.startActivity(intent);
+			context.startActivity(intent);}
+			if(section==2){
+				Intent intent = new Intent(context, Activity_Level_Easy2.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);}
 		}
 		if (level == 1) {
 			/*
