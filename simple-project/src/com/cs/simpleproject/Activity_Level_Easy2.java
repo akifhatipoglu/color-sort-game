@@ -46,13 +46,17 @@ OnDragListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		startTime = System.currentTimeMillis();
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.easy2);
 		Intent intent = getIntent();
 		Bundle gelenVeri = intent.getExtras();
 		level = gelenVeri.getInt("level");
 		section = gelenVeri.getInt("section");
 		result = gelenVeri.getStringArrayList("result");
 		System.out.println(result);
+		if(section==2){
+		setContentView(R.layout.easy2);}
+		if(section==3){
+			setContentView(R.layout.easy3);}
+		
 		String color[] = new String[10];
 		int colorvalue[] = new int[10];
 		String colorm = "";
@@ -341,13 +345,10 @@ OnDragListener{
 							this,
 							"Congratulations! The game is over. Your Score: "
 									+ PUAN, Toast.LENGTH_LONG).show();
-					db.addScore("Level:Easy Section:2", PUAN);
-					try {
-						Thread.sleep(1000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					if(section==2){
+					db.addScore("Level:Easy Section:2", PUAN);}
+					if(section==3){
+						db.addScore("Level:Easy Section:3", PUAN);}
 					Intent intent = new Intent(Activity_Level_Easy2.this,
 							Activity_Main.class);
 					startActivity(intent);
