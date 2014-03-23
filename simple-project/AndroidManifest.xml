@@ -44,6 +44,10 @@
          <activity
             android:name=".image_HomeActivity"
             android:label="@string/app_name" />
+         
+        <activity
+            android:name=".Activity_Level_Easy"
+            android:label="@string/app_name" />
           
          
         

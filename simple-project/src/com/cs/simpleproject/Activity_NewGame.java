@@ -12,7 +12,7 @@ import android.widget.Button;
 public class Activity_NewGame extends Activity {
 	private static final int LEVEL_EASY = 0;
 	private static final int LEVEL_MEDIUM = 1;
-	private static final int LEVEL_HARD = 3;
+	private static final int LEVEL_HARD = 2;
 
 	// final Context cont=getApplicationContext();
 

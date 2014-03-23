@@ -69,16 +69,9 @@ public class image_GridActivity extends image_AbsListViewBaseActivity {
 		
 		if(algorithm==1)
 		{
-			/*AsyncTask_ScalarQuantization task = new AsyncTask_ScalarQuantization(this,imageUrls1.get(position));
-			task.execute();*/
-			
-			AsyncTask_ScalarQuantization task = new AsyncTask_ScalarQuantization(this,imageUrls1.get(position));
+			AsyncTask_ScalarQuantization task = new AsyncTask_ScalarQuantization(this,imageUrls1.get(position),level,section);
 			task.execute();
 			
-			/*Intent intent = new Intent(this, Scalar.class);
-			intent.putExtra("yey",imageUrls1.get(position));
-			startActivity(intent);
-			*/
 		}
 		if(algorithm==2)
 		{

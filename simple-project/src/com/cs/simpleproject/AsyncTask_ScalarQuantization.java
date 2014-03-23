@@ -15,6 +15,7 @@ import java.util.TreeMap;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -29,14 +30,17 @@ public class AsyncTask_ScalarQuantization extends  AsyncTask<String,String,List<
 	private ProgressDialog progressDialog;
 	private static int IMG_WIDTH = 400;
 	private static int IMG_HEIGHT = 300;
+	private int level=0,section=0;
 	String file_path="";
 	Set<String> s = new HashSet<String>();
-	List<String> a = new LinkedList<String>();
+	List<String> a = new LinkedList<String>(); 
 	
-	public AsyncTask_ScalarQuantization(Context context,String path) {
+	public AsyncTask_ScalarQuantization(Context context,String path,int level,int section) {
 		super();
 		this.context = context;
 		this.file_path=path;
+		this.level=level;
+		this.section=section;
 	}
 	@Override
 	protected void onPreExecute() {
@@ -57,6 +61,28 @@ public class AsyncTask_ScalarQuantization extends  AsyncTask<String,String,List<
 	protected void onPostExecute(List<String> result) {
 		progressDialog.cancel();
 		
+		ArrayList<String> result1=new ArrayList<String>(result);
+		if(level==0){
+		Intent intent = new Intent(context,Activity_Level_Easy.class);
+		intent.putExtra("result", result1);
+		intent.putExtra("level",level);
+		intent.putExtra("section",section);
+		context.startActivity(intent);
+		}
+		if(level==1){
+			/*Intent intent = new Intent(context,image_GridActivity.class);
+			intent.putExtra("result", result1);
+			intent.putExtra("level",level);
+			intent.putExtra("section",section);
+			context.startActivity(intent);*/
+			}
+		if(level==2){
+			/*Intent intent = new Intent(context,image_GridActivity.class);
+			intent.putExtra("result", result1);
+			intent.putExtra("level",level);
+			intent.putExtra("section",section);
+			context.startActivity(intent);*/
+			}
 	}
 	
 	private List<String> ScalarQuantization(Context context2) {
