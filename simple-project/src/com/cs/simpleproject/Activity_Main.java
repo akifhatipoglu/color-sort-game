@@ -23,6 +23,16 @@ public class Activity_Main extends Activity {
 				Activity_Main.this.finish();
 			}
 		});
+		Button button_score = (Button) findViewById(R.id.button_Score);
+		button_score.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(Activity_Main.this,
+						Activity_Score.class);
+				startActivity(intent);
+				Activity_Main.this.finish();
+			}
+		});
 
 		Button button_exit = (Button) findViewById(R.id.button_Exit);
 		button_exit.setOnClickListener(new View.OnClickListener() {

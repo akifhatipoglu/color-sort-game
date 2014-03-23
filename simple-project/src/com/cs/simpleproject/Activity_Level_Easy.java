@@ -26,6 +26,7 @@ import android.view.View.OnDragListener;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 @SuppressLint("NewApi")
 public class Activity_Level_Easy extends Activity implements OnTouchListener,OnDragListener{
@@ -34,9 +35,14 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,OnD
 	private String id1,id2,id3,id4;
 	List<String> getlist;
 	String compare[]=new String [5];
+	LinearLayout color_layout;
+	private int PUAN=100;
+	private int isGameFinished=0;
+	long startTime=0,finishTime=0;
+	Database db=new Database(this);
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+		startTime= System.currentTimeMillis();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.easy1);
 		Intent intent=getIntent();
@@ -94,7 +100,7 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,OnD
 		LinearLayout l4=(LinearLayout)findViewById(R.id.laoyut_4);
 		l4.setOnDragListener(this);
 		
-		
+		color_layout=(LinearLayout)findViewById(R.id.color_layout);
 		
 		
 		for (int j = 0; j<getlist.size(); j++) {
@@ -137,7 +143,6 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,OnD
 			}
 			}
 	}
-
 	@Override
 	public boolean onDrag(View layoutview, DragEvent dragevent) {
 		int action = dragevent.getAction();
@@ -155,13 +160,13 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,OnD
 	    	  System.out.println("Drag event exited from "+layoutview.toString());
 	    	break;
 	      case DragEvent.ACTION_DROP:
+	    	boolean pass=false;
 	    	Log.d("aaa", "Dropped");
 	    	System.out.println("Dropped");
 	    	View view = (View) dragevent.getLocalState();
 	    	ViewGroup owner = (ViewGroup) view.getParent();
-	        owner.removeView(view);
 	        LinearLayout container = (LinearLayout) layoutview;
-	        container.addView(view);
+	        
 	        
 	        String c1=""+view.getId();
 	        String c2=""+view.getId();
@@ -169,31 +174,52 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,OnD
 	        System.out.println(c2);
 	        
 	        if(c1.equals(id1)){System.out.println("bt1");
-	        	if(c2.equals(compare[0])){System.out.println("baþardýn la yuva");}}
+	        	if(c2.equals(compare[0])){System.out.println("baþardýn la yuva");pass=true;}}
 	        
 	        if(c1.equals(id2)){System.out.println("bt2");
-	        	if(c2.equals(compare[1])){System.out.println("baþardýn la yuva");}}
+	        	if(c2.equals(compare[1])){System.out.println("baþardýn la yuva");pass=true;}}
 	        
 	        if(c1.equals(id3)){System.out.println("bt3");
-	        	if(c2.equals(compare[2])){System.out.println("baþardýn la yuva");}}
+	        	if(c2.equals(compare[2])){System.out.println("baþardýn la yuva");pass=true;}}
 	        
 	        if(c1.equals(id4)){System.out.println("bt4");
-	        	if(c2.equals(compare[3])){System.out.println("baþardýn la yuva");}}
-	        
-	       
-	        
+	        	if(c2.equals(compare[3])){System.out.println("baþardýn la yuva");pass=true;}}
+	         
+	        if(pass==true){
+	        owner.removeView(view);
+	        container.addView(view);
 	        container.setBackground(view.getBackground());
-	        System.out.println("sas"+view.getBackground());;
-	        System.out.println("dasasa "+view.getId()+"yey");
-	        String name=layoutview.toString();
-	        
-	        System.out.println(name+"  "+name.length());
-	        
-	        
-	        
-	        
 	        view.setVisibility(View.VISIBLE);
+	        PUAN+=200;
+	        isGameFinished++;
+	        Toast.makeText(this,"Score: "+PUAN,Toast.LENGTH_SHORT).show();
+	        if(isGameFinished==4){
+	        	finishTime=System.currentTimeMillis()-startTime;
+	        	finishTime=finishTime/60;
+	        	System.out.println(finishTime);
+	        	PUAN-=finishTime;
+	        	Toast.makeText(this,"Congratulations! The game is over. Your Score: "+PUAN,Toast.LENGTH_LONG).show();}
+	        	/*db.addScore("Level:Easy Section:1", PUAN);
+	        	try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	        	Intent intent = new Intent(Activity_Level_Easy.this,
+						Activity_Main.class);
+				startActivity(intent);
+				Activity_Level_Easy.this.finish();*/
+	        }else{
+	        	owner.removeView(view);
+	        	color_layout.addView(view);
+	        	view.setVisibility(View.VISIBLE);
+	        	PUAN-=75;
+	        	startTime-=300;
+	        	Toast.makeText(this,"Score: "+PUAN,Toast.LENGTH_SHORT).show();
+	        }
 	        
+	        pass=false;
 	        break;
 	      case DragEvent.ACTION_DRAG_ENDED:
 	    		  Log.d("aaa", "Drag ended");
