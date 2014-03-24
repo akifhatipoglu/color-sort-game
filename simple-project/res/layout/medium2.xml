@@ -58,6 +58,8 @@
              style="?android:attr/buttonStyleSmall"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content" />
+         
+         
 
     </LinearLayout>
 
@@ -71,14 +73,15 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        <Button
+             android:id="@+id/color9"
+             style="?android:attr/buttonStyleSmall"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
 
     </LinearLayout>
     
-    <LinearLayout
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:orientation="vertical" >
-    </LinearLayout>
+    
     
      <LinearLayout
          android:layout_width="match_parent"
@@ -88,7 +91,7 @@
          android:paddingLeft="5dp" >
        
         <LinearLayout
-            android:id="@+id/laoyut_1"
+            android:id="@+id/laoyut_2"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="#FFFFFF"
@@ -101,7 +104,7 @@
     	</LinearLayout>
 
         <LinearLayout
-            android:id="@+id/laoyut_2"
+            android:id="@+id/laoyut_3"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="#FFFFFF"
@@ -114,7 +117,7 @@
     	</LinearLayout>
       
         <LinearLayout
-            android:id="@+id/laoyut_3"
+            android:id="@+id/laoyut_4"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="#FFFFFF"
@@ -137,7 +140,28 @@
              <LinearLayout
                  android:layout_width="106dp"
                  android:layout_height="103dp"
-                 android:orientation="vertical" >
+                 android:orientation="vertical"
+                 >
+
+                 <LinearLayout
+                     android:layout_width="match_parent"
+                     android:layout_height="51dp"
+                     android:paddingTop="1dp" >
+                     <LinearLayout
+                     android:layout_width="6dp"
+                     android:layout_height="1dp"
+                     android:orientation="vertical" >
+                 </LinearLayout>
+
+                 <LinearLayout
+                     android:id="@+id/laoyut_1"
+                     android:layout_width="50dp"
+                     android:layout_height="50dp"
+                     android:background="#FFFFFF"
+                     android:orientation="vertical" >
+                 </LinearLayout>
+                 </LinearLayout>
+
              </LinearLayout>
 
              <LinearLayout
@@ -146,7 +170,7 @@
                  android:paddingLeft="5dp" >
 
                  <LinearLayout
-                     android:id="@+id/laoyut_8"
+                     android:id="@+id/laoyut_9"
                      android:layout_width="50dp"
                      android:layout_height="50dp"
                      android:background="#FFFFFF"
@@ -161,7 +185,7 @@
                  </LinearLayout>
 
                  <LinearLayout
-                     android:id="@+id/laoyut_7"
+                     android:id="@+id/laoyut_8"
                      android:layout_width="50dp"
                      android:layout_height="50dp"
                      android:background="#FFFFFF"
@@ -189,7 +213,7 @@
              </LinearLayout>
 
              <LinearLayout
-                 android:id="@+id/laoyut_4"
+                 android:id="@+id/laoyut_5"
                  android:layout_width="50dp"
                  android:layout_height="50dp"
                  android:background="#FFFFFF"
@@ -203,7 +227,7 @@
              </LinearLayout>
 
              <LinearLayout
-                 android:id="@+id/laoyut_5"
+                 android:id="@+id/laoyut_6"
                  android:layout_width="50dp"
                  android:layout_height="50dp"
                  android:background="#FFFFFF"
@@ -216,7 +240,7 @@
              </LinearLayout>
 
              <LinearLayout
-                 android:id="@+id/laoyut_6"
+                 android:id="@+id/laoyut_7"
                  android:layout_width="50dp"
                  android:layout_height="50dp"
                  android:background="#FFFFFF"
