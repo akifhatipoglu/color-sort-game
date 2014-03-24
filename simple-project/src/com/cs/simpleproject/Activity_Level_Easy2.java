@@ -28,12 +28,12 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 @SuppressLint("NewApi")
-public class Activity_Level_Easy2  extends Activity implements OnTouchListener,
-OnDragListener{
-	
+public class Activity_Level_Easy2 extends Activity implements OnTouchListener,
+		OnDragListener {
+
 	ArrayList<String> result = new ArrayList<String>();
 	private int level = 0, section = 0;
-	private String id1, id2, id3, id4,id5;
+	private String id1, id2, id3, id4, id5;
 	List<String> getlist;
 	String compare[] = new String[6];
 	LinearLayout color_layout;
@@ -41,7 +41,7 @@ OnDragListener{
 	private int isGameFinished = 0;
 	long startTime = 0, finishTime = 0;
 	Database db = new Database(this);
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		startTime = System.currentTimeMillis();
@@ -52,11 +52,13 @@ OnDragListener{
 		section = gelenVeri.getInt("section");
 		result = gelenVeri.getStringArrayList("result");
 		System.out.println(result);
-		if(section==2){
-		setContentView(R.layout.easy2);}
-		if(section==3){
-			setContentView(R.layout.easy3);}
-		
+		if (section == 2) {
+			setContentView(R.layout.easy2);
+		}
+		if (section == 3) {
+			setContentView(R.layout.easy3);
+		}
+
 		String color[] = new String[10];
 		int colorvalue[] = new int[10];
 		String colorm = "";
@@ -73,7 +75,7 @@ OnDragListener{
 		System.out.println(sortedMap);
 		getlist = new ArrayList<String>(sortedMap.keySet());
 		System.out.println(getlist);
-		
+
 		Button bt1 = (Button) findViewById(R.id.color1);
 		bt1.setBackgroundColor(Color.parseColor(color[0]));
 		bt1.setOnTouchListener(this);
@@ -93,13 +95,12 @@ OnDragListener{
 		bt4.setOnTouchListener(this);
 		id4 = "" + bt4.getId();
 		bt4.setBackgroundColor(Color.parseColor(color[3]));
-		
+
 		Button bt5 = (Button) findViewById(R.id.color5);
 		bt5.setOnTouchListener(this);
 		id5 = "" + bt5.getId();
 		bt5.setBackgroundColor(Color.parseColor(color[4]));
 
-		
 		LinearLayout l1 = (LinearLayout) findViewById(R.id.laoyut_1);
 		l1.setOnDragListener(this);
 		LinearLayout l2 = (LinearLayout) findViewById(R.id.laoyut_2);
@@ -110,9 +111,9 @@ OnDragListener{
 		l4.setOnDragListener(this);
 		LinearLayout l5 = (LinearLayout) findViewById(R.id.laoyut_5);
 		l5.setOnDragListener(this);
-		
+
 		color_layout = (LinearLayout) findViewById(R.id.color_layout);
-		
+
 		for (int j = 0; j < getlist.size(); j++) {
 			String s = getlist.get(j);
 			System.out.println("holle: " + s);
@@ -247,8 +248,7 @@ OnDragListener{
 				}
 			}
 		}
-		
-		
+
 	}
 
 	@Override
@@ -345,10 +345,12 @@ OnDragListener{
 							this,
 							"Congratulations! The game is over. Your Score: "
 									+ PUAN, Toast.LENGTH_LONG).show();
-					if(section==2){
-					db.addScore("Level:Easy Section:2", PUAN);}
-					if(section==3){
-						db.addScore("Level:Easy Section:3", PUAN);}
+					if (section == 2) {
+						db.addScore("Level:Easy Section:2", PUAN);
+					}
+					if (section == 3) {
+						db.addScore("Level:Easy Section:3", PUAN);
+					}
 					Intent intent = new Intent(Activity_Level_Easy2.this,
 							Activity_Main.class);
 					startActivity(intent);
@@ -410,5 +412,4 @@ OnDragListener{
 		return sortedMap;
 	}
 
-	
 }

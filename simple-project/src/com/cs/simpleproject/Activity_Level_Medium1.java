@@ -28,11 +28,11 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 @SuppressLint("NewApi")
-public class Activity_Level_Medium1  extends Activity implements OnTouchListener,
-OnDragListener {
+public class Activity_Level_Medium1 extends Activity implements
+		OnTouchListener, OnDragListener {
 	ArrayList<String> result = new ArrayList<String>();
 	private int level = 0, section = 0;
-	private String id1, id2, id3, id4,id5,id6,id7,id8;
+	private String id1, id2, id3, id4, id5, id6, id7, id8;
 	List<String> getlist;
 	String compare[] = new String[8];
 	LinearLayout color_layout;
@@ -40,7 +40,7 @@ OnDragListener {
 	private int isGameFinished = 0;
 	long startTime = 0, finishTime = 0;
 	Database db = new Database(this);
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		startTime = System.currentTimeMillis();
@@ -52,7 +52,7 @@ OnDragListener {
 		result = gelenVeri.getStringArrayList("result");
 		System.out.println(result);
 		setContentView(R.layout.medium1);
-		
+
 		String color[] = new String[15];
 		int colorvalue[] = new int[15];
 		String colorm = "";
@@ -69,7 +69,7 @@ OnDragListener {
 		System.out.println(sortedMap);
 		getlist = new ArrayList<String>(sortedMap.keySet());
 		System.out.println(getlist);
-		
+
 		Button bt1 = (Button) findViewById(R.id.color1);
 		bt1.setBackgroundColor(Color.parseColor(color[0]));
 		bt1.setOnTouchListener(this);
@@ -89,27 +89,27 @@ OnDragListener {
 		bt4.setOnTouchListener(this);
 		id4 = "" + bt4.getId();
 		bt4.setBackgroundColor(Color.parseColor(color[3]));
-		
+
 		Button bt5 = (Button) findViewById(R.id.color5);
 		bt5.setOnTouchListener(this);
 		id5 = "" + bt5.getId();
 		bt5.setBackgroundColor(Color.parseColor(color[4]));
-		
+
 		Button bt6 = (Button) findViewById(R.id.color6);
 		bt6.setOnTouchListener(this);
 		id6 = "" + bt6.getId();
 		bt6.setBackgroundColor(Color.parseColor(color[5]));
-		
+
 		Button bt7 = (Button) findViewById(R.id.color7);
 		bt7.setOnTouchListener(this);
 		id7 = "" + bt7.getId();
 		bt7.setBackgroundColor(Color.parseColor(color[6]));
-		
+
 		Button bt8 = (Button) findViewById(R.id.color8);
 		bt8.setOnTouchListener(this);
 		id8 = "" + bt8.getId();
 		bt8.setBackgroundColor(Color.parseColor(color[7]));
-		
+
 		LinearLayout l1 = (LinearLayout) findViewById(R.id.laoyut_1);
 		l1.setOnDragListener(this);
 		LinearLayout l2 = (LinearLayout) findViewById(R.id.laoyut_2);
@@ -126,10 +126,9 @@ OnDragListener {
 		l7.setOnDragListener(this);
 		LinearLayout l8 = (LinearLayout) findViewById(R.id.laoyut_8);
 		l8.setOnDragListener(this);
-		
+
 		color_layout = (LinearLayout) findViewById(R.id.color_layout);
-		
-		
+
 		for (int j = 0; j < getlist.size(); j++) {
 			String s = getlist.get(j);
 			System.out.println("holle: " + s);
@@ -435,8 +434,7 @@ OnDragListener {
 				}
 			}
 		}
-		
-		
+
 	}
 
 	@Override
@@ -592,6 +590,7 @@ OnDragListener {
 			return false;
 		}
 	}
+
 	private static Map sortByComparator(Map unsortMap) {
 
 		List list = new LinkedList(unsortMap.entrySet());

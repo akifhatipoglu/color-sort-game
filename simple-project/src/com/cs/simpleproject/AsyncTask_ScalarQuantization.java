@@ -65,56 +65,67 @@ public class AsyncTask_ScalarQuantization extends
 
 		ArrayList<String> result1 = new ArrayList<String>(result);
 		if (level == 0) {
-			if(section==1){
-			Intent intent = new Intent(context, Activity_Level_Easy.class);
-			intent.putExtra("result", result1);
-			intent.putExtra("level", level);
-			intent.putExtra("section", section);
-			context.startActivity(intent);}
-			if(section==2){
+			if (section == 1) {
+				Intent intent = new Intent(context, Activity_Level_Easy.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);
+			}
+			if (section == 2) {
 				Intent intent = new Intent(context, Activity_Level_Easy2.class);
 				intent.putExtra("result", result1);
 				intent.putExtra("level", level);
 				intent.putExtra("section", section);
-				context.startActivity(intent);}
-			if(section==3){
+				context.startActivity(intent);
+			}
+			if (section == 3) {
 				Intent intent = new Intent(context, Activity_Level_Easy2.class);
 				intent.putExtra("result", result1);
 				intent.putExtra("level", level);
 				intent.putExtra("section", section);
-				context.startActivity(intent);}
-			if(section==4){
+				context.startActivity(intent);
+			}
+			if (section == 4) {
 				Intent intent = new Intent(context, Activity_Level_Easy3.class);
 				intent.putExtra("result", result1);
 				intent.putExtra("level", level);
 				intent.putExtra("section", section);
-				context.startActivity(intent);}
+				context.startActivity(intent);
+			}
 		}
 		if (level == 1) {
-			if(section==1){
+			if (section == 1) {
 				Intent intent = new Intent(context, Activity_Level_Medium.class);
 				intent.putExtra("result", result1);
 				intent.putExtra("level", level);
 				intent.putExtra("section", section);
-				context.startActivity(intent);}
-			if(section==2){
-				Intent intent = new Intent(context, Activity_Level_Medium1.class);
+				context.startActivity(intent);
+			}
+			if (section == 2) {
+				Intent intent = new Intent(context,
+						Activity_Level_Medium1.class);
 				intent.putExtra("result", result1);
 				intent.putExtra("level", level);
 				intent.putExtra("section", section);
-				context.startActivity(intent);}
-			if(section==3){
-				Intent intent = new Intent(context, Activity_Level_Medium2.class);
+				context.startActivity(intent);
+			}
+			if (section == 3) {
+				Intent intent = new Intent(context,
+						Activity_Level_Medium2.class);
 				intent.putExtra("result", result1);
 				intent.putExtra("level", level);
 				intent.putExtra("section", section);
-				context.startActivity(intent);}
-			if(section==4){
-				Intent intent = new Intent(context, Activity_Level_Medium3.class);
+				context.startActivity(intent);
+			}
+			if (section == 4) {
+				Intent intent = new Intent(context,
+						Activity_Level_Medium3.class);
 				intent.putExtra("result", result1);
 				intent.putExtra("level", level);
 				intent.putExtra("section", section);
-				context.startActivity(intent);}
+				context.startActivity(intent);
+			}
 			/*
 			 * Intent intent = new Intent(context,image_GridActivity.class);
 			 * intent.putExtra("result", result1);
@@ -124,33 +135,35 @@ public class AsyncTask_ScalarQuantization extends
 			 */
 		}
 		if (level == 2) {
-			if(section==1){
+			if (section == 1) {
 				Intent intent = new Intent(context, Activity_Level_Hard.class);
 				intent.putExtra("result", result1);
 				intent.putExtra("level", level);
 				intent.putExtra("section", section);
-				context.startActivity(intent);}
-			if(section==2){
+				context.startActivity(intent);
+			}
+			if (section == 2) {
 				Intent intent = new Intent(context, Activity_Level_Hard1.class);
 				intent.putExtra("result", result1);
 				intent.putExtra("level", level);
 				intent.putExtra("section", section);
-				context.startActivity(intent);}
-			if(section==3){
+				context.startActivity(intent);
+			}
+			if (section == 3) {
 				Intent intent = new Intent(context, Activity_Level_Hard2.class);
 				intent.putExtra("result", result1);
 				intent.putExtra("level", level);
 				intent.putExtra("section", section);
-				context.startActivity(intent);}
-			if(section==4){
+				context.startActivity(intent);
+			}
+			if (section == 4) {
 				Intent intent = new Intent(context, Activity_Level_Hard3.class);
 				intent.putExtra("result", result1);
 				intent.putExtra("level", level);
 				intent.putExtra("section", section);
-				context.startActivity(intent);}
-			
-			
-			
+				context.startActivity(intent);
+			}
+
 			/*
 			 * Intent intent = new Intent(context,image_GridActivity.class);
 			 * intent.putExtra("result", result1);
