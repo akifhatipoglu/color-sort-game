@@ -28,20 +28,19 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 @SuppressLint("NewApi")
-public class Activity_Level_Hard2  extends Activity implements OnTouchListener,
-OnDragListener{
+public class Activity_Level_Hard3 extends Activity implements OnTouchListener,
+OnDragListener {
 
 	ArrayList<String> result = new ArrayList<String>();
 	private int level = 0, section = 0;
-	private String id1, id2, id3, id4,id5,id6,id7,id8,id9,id10,id11,id12,id13;
+	private String id1, id2, id3, id4,id5,id6,id7,id8,id9,id10,id11,id12,id13,id14;
 	List<String> getlist;
-	String compare[] = new String[13];
+	String compare[] = new String[14];
 	LinearLayout color_layout;
 	private int PUAN = 100;
 	private int isGameFinished = 0;
 	long startTime = 0, finishTime = 0;
 	Database db = new Database(this);
-	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +52,13 @@ OnDragListener{
 		section = gelenVeri.getInt("section");
 		result = gelenVeri.getStringArrayList("result");
 		System.out.println(result);
-		setContentView(R.layout.hard3);
+		setContentView(R.layout.hard4);
 		
 		String color[] = new String[15];
 		int colorvalue[] = new int[15];
 		String colorm = "";
 		Map<String, Integer> treeMap = new TreeMap<String, Integer>();
-		for (int i = 1; i < 14; i++) {
+		for (int i = 1; i < 15; i++) {
 			colorm = result.get(result.size() - i);
 			color[i - 1] = colorm;
 			colorm = colorm.substring(1, colorm.length());
@@ -137,6 +136,11 @@ OnDragListener{
 		id13 = "" + bt13.getId();
 		bt13.setBackgroundColor(Color.parseColor(color[12]));
 		
+		Button bt14 = (Button) findViewById(R.id.color14);
+		bt14.setOnTouchListener(this);
+		id14 = "" + bt14.getId();
+		bt14.setBackgroundColor(Color.parseColor(color[13]));
+		
 		LinearLayout l1 = (LinearLayout) findViewById(R.id.laoyut_1);
 		l1.setOnDragListener(this);
 		LinearLayout l2 = (LinearLayout) findViewById(R.id.laoyut_2);
@@ -163,13 +167,15 @@ OnDragListener{
 		l12.setOnDragListener(this);
 		LinearLayout l13 = (LinearLayout) findViewById(R.id.laoyut_13);
 		l13.setOnDragListener(this);
+		LinearLayout l14 = (LinearLayout) findViewById(R.id.laoyut_14);
+		l14.setOnDragListener(this);
 		
 		color_layout = (LinearLayout) findViewById(R.id.color_layout);
-
+		
 		for (int j = 0; j < getlist.size(); j++) {
 			String s = getlist.get(j);
 			System.out.println("holle: " + s);
-			for (int i = 0; i < 13; i++) {
+			for (int i = 0; i < 14; i++) {
 				if (color[i].equals(s)) {
 					if (i == 0) {
 						compare[0] = "" + bt1.getId();
@@ -224,6 +230,10 @@ OnDragListener{
 						if (j == 12) {
 							compare[0] += "" + l13.getId();
 							System.out.println("l13 b1");
+						}
+						if (j == 13) {
+							compare[0] += "" + l14.getId();
+							System.out.println("l14 b1");
 						}
 						System.out.println("Button 1 " + bt1.getId() + " " + j
 								+ " " + compare[0]);
@@ -282,6 +292,10 @@ OnDragListener{
 							compare[1] += "" + l13.getId();
 							System.out.println("l13 b2");
 						}
+						if (j == 13) {
+							compare[1] += "" + l14.getId();
+							System.out.println("l14 b2");
+						}
 						System.out.println("Button 2 " + bt2.getId() + " " + j
 								+ " " + compare[1]);
 					}
@@ -338,6 +352,10 @@ OnDragListener{
 						if (j == 12) {
 							compare[2] += "" + l13.getId();
 							System.out.println("l13 b3");
+						}
+						if (j == 13) {
+							compare[2] += "" + l14.getId();
+							System.out.println("l14 b3");
 						}
 						System.out.println("Button 3 " + bt3.getId() + " " + j
 								+ " " + compare[2]);
@@ -396,6 +414,10 @@ OnDragListener{
 							compare[3] += "" + l13.getId();
 							System.out.println("l13 b4");
 						}
+						if (j == 13) {
+							compare[3] += "" + l14.getId();
+							System.out.println("l14 b4");
+						}
 						System.out.println("Button 4 " + bt4.getId() + " " + j
 								+ " " + compare[3]);
 					}
@@ -452,6 +474,10 @@ OnDragListener{
 						if (j == 12) {
 							compare[4] += "" + l3.getId();
 							System.out.println("l13 b4");
+						}
+						if (j == 13) {
+							compare[4] += "" + l4.getId();
+							System.out.println("l14 b4");
 						}
 						System.out.println("Button 4 " + bt4.getId() + " " + j
 								+ " " + compare[3]);
@@ -510,6 +536,10 @@ OnDragListener{
 							compare[5] += "" + l13.getId();
 							System.out.println("l13 b4");
 						}
+						if (j == 13) {
+							compare[5] += "" + l14.getId();
+							System.out.println("l14 b4");
+						}
 						System.out.println("Button 4 " + bt4.getId() + " " + j
 								+ " " + compare[3]);
 					}
@@ -566,6 +596,10 @@ OnDragListener{
 						if (j == 12) {
 							compare[6] += "" + l13.getId();
 							System.out.println("l13 b4");
+						}
+						if (j == 13) {
+							compare[6] += "" + l14.getId();
+							System.out.println("l14 b4");
 						}
 						System.out.println("Button 4 " + bt4.getId() + " " + j
 								+ " " + compare[3]);
@@ -624,6 +658,10 @@ OnDragListener{
 							compare[7] += "" + l13.getId();
 							System.out.println("l13 b4");
 						}
+						if (j == 13) {
+							compare[7] += "" + l14.getId();
+							System.out.println("l14 b4");
+						}
 						System.out.println("Button 4 " + bt4.getId() + " " + j
 								+ " " + compare[3]);
 					}
@@ -680,6 +718,10 @@ OnDragListener{
 						if (j == 12) {
 							compare[8] += "" + l13.getId();
 							System.out.println("l13 b4");
+						}
+						if (j == 13) {
+							compare[8] += "" + l14.getId();
+							System.out.println("l14 b4");
 						}
 						System.out.println("Button 4 " + bt4.getId() + " " + j
 								+ " " + compare[3]);
@@ -738,6 +780,10 @@ OnDragListener{
 							compare[9] += "" + l13.getId();
 							System.out.println("l13 b4");
 						}
+						if (j == 13) {
+							compare[9] += "" + l14.getId();
+							System.out.println("l14 b4");
+						}
 						System.out.println("Button 4 " + bt4.getId() + " " + j
 								+ " " + compare[3]);
 					}
@@ -794,6 +840,10 @@ OnDragListener{
 						if (j == 12) {
 							compare[10] += "" + l13.getId();
 							System.out.println("l13 b4");
+						}
+						if (j == 13) {
+							compare[10] += "" + l14.getId();
+							System.out.println("l14 b4");
 						}
 						System.out.println("Button 4 " + bt4.getId() + " " + j
 								+ " " + compare[3]);
@@ -852,6 +902,10 @@ OnDragListener{
 							compare[11] += "" + l13.getId();
 							System.out.println("l13 b4");
 						}
+						if (j == 13) {
+							compare[11] += "" + l14.getId();
+							System.out.println("l14 b4");
+						}
 						System.out.println("Button 4 " + bt4.getId() + " " + j
 								+ " " + compare[3]);
 					}
@@ -909,6 +963,71 @@ OnDragListener{
 							compare[12] += "" + l13.getId();
 							System.out.println("l13 b4");
 						}
+						if (j == 13) {
+							compare[12] += "" + l14.getId();
+							System.out.println("l14 b4");
+						}
+						System.out.println("Button 4 " + bt4.getId() + " " + j
+								+ " " + compare[3]);
+					}
+					if (i == 13) {
+						compare[13] = "" + bt14.getId();
+						if (j == 0) {
+							compare[13] += "" + l1.getId();
+							System.out.println("l1 b4");
+						}
+						if (j == 1) {
+							compare[13] += "" + l2.getId();
+							System.out.println("l2 b4");
+						}
+						if (j == 2) {
+							compare[13] += "" + l3.getId();
+							System.out.println("l3 b4");
+						}
+						if (j == 3) {
+							compare[13] += "" + l4.getId();
+							System.out.println("l4 b4");
+						}
+						if (j == 4) {
+							compare[13] += "" + l5.getId();
+							System.out.println("l6 b4");
+						}
+						if (j == 5) {
+							compare[13] += "" + l6.getId();
+							System.out.println("l6 b4");
+						}
+						if (j == 6) {
+							compare[13] += "" + l7.getId();
+							System.out.println("l6 b4");
+						}
+						if (j == 7) {
+							compare[13] += "" + l8.getId();
+							System.out.println("l8 b4");
+						}
+						if (j == 8) {
+							compare[13] += "" + l9.getId();
+							System.out.println("l9 b4");
+						}
+						if (j == 9) {
+							compare[13] += "" + l10.getId();
+							System.out.println("l10 b4");
+						}
+						if (j == 10) {
+							compare[13] += "" + l11.getId();
+							System.out.println("l11 b4");
+						}
+						if (j == 11) {
+							compare[13] += "" + l12.getId();
+							System.out.println("l12 b4");
+						}
+						if (j == 12) {
+							compare[13] += "" + l13.getId();
+							System.out.println("l13 b4");
+						}
+						if (j == 13) {
+							compare[13] += "" + l14.getId();
+							System.out.println("l14 b4");
+						}
 						System.out.println("Button 4 " + bt4.getId() + " " + j
 								+ " " + compare[3]);
 					}
@@ -916,6 +1035,7 @@ OnDragListener{
 				}
 			}
 		}
+		
 	}
 	
 	@Override
@@ -1043,6 +1163,13 @@ OnDragListener{
 					pass = true;
 				}
 			}
+			if (c1.equals(id14)) {
+				System.out.println("bt14");
+				if (c2.equals(compare[13])) {
+					System.out.println("baþardýn la yuva");
+					pass = true;
+				}
+			}
 
 			if (pass == true) {
 				owner.removeView(view);
@@ -1053,7 +1180,7 @@ OnDragListener{
 				isGameFinished++;
 				Toast.makeText(this, "Score: " + PUAN, Toast.LENGTH_SHORT)
 						.show();
-				if (isGameFinished == 13) {
+				if (isGameFinished == 14) {
 					finishTime = System.currentTimeMillis() - startTime;
 					finishTime = finishTime / 60;
 					System.out.println(finishTime);
@@ -1068,11 +1195,11 @@ OnDragListener{
 							this,
 							"Congratulations! The game is over. Your Score: "
 									+ PUAN, Toast.LENGTH_LONG).show();
-					db.addScore("Level:Hard Section:3", PUAN);
-					Intent intent = new Intent(Activity_Level_Hard2.this,
+					db.addScore("Level:Hard Section:4", PUAN);
+					Intent intent = new Intent(Activity_Level_Hard3.this,
 							Activity_Main.class);
 					startActivity(intent);
-					Activity_Level_Hard2.this.finish();
+					Activity_Level_Hard3.this.finish();
 				}
 			} else {
 				owner.removeView(view);

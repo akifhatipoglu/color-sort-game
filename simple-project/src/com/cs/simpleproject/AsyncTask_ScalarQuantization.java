@@ -142,6 +142,12 @@ public class AsyncTask_ScalarQuantization extends
 				intent.putExtra("level", level);
 				intent.putExtra("section", section);
 				context.startActivity(intent);}
+			if(section==4){
+				Intent intent = new Intent(context, Activity_Level_Hard3.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);}
 			
 			
 			

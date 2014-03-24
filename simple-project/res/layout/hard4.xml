@@ -98,6 +98,11 @@
              style="?android:attr/buttonStyleSmall"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content" />
+         <Button
+             android:id="@+id/color14"
+             style="?android:attr/buttonStyleSmall"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
          
 
     </LinearLayout>
@@ -211,7 +216,21 @@
              <LinearLayout
                  android:layout_width="match_parent"
                  android:layout_height="wrap_content"
-                 android:paddingLeft="56dp" >
+                 android:paddingLeft="5dp" >
+                 <LinearLayout
+                     android:id="@+id/laoyut_14"
+                     android:layout_width="50dp"
+                     android:layout_height="50dp"
+                     android:background="#FFFFFF"
+                     android:orientation="vertical" >
+                     
+                 </LinearLayout>
+
+                 <LinearLayout
+                     android:layout_width="1dp"
+                     android:layout_height="1dp"
+                     android:orientation="vertical" >
+                 </LinearLayout>
                  <LinearLayout
                      android:id="@+id/laoyut_13"
                      android:layout_width="50dp"
