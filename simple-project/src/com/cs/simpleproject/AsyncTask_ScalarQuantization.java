@@ -83,8 +83,20 @@ public class AsyncTask_ScalarQuantization extends
 				intent.putExtra("level", level);
 				intent.putExtra("section", section);
 				context.startActivity(intent);}
+			if(section==4){
+				Intent intent = new Intent(context, Activity_Level_Easy3.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);}
 		}
 		if (level == 1) {
+			if(section==1){
+				Intent intent = new Intent(context, Activity_Level_Medium.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);}
 			/*
 			 * Intent intent = new Intent(context,image_GridActivity.class);
 			 * intent.putExtra("result", result1);

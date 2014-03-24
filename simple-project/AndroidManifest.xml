@@ -51,6 +51,12 @@
          <activity
             android:name=".Activity_Level_Easy2"
             android:label="@string/app_name" />
+          <activity
+            android:name=".Activity_Level_Easy3"
+            android:label="@string/app_name" />
+          <activity
+            android:name=".Activity_Level_Medium"
+            android:label="@string/app_name" />
          <activity
             android:name=".Activity_Score"
             android:label="@string/app_name" />
