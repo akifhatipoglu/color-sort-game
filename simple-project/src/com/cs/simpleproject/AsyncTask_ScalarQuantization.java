@@ -18,6 +18,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -157,7 +158,7 @@ public class AsyncTask_ScalarQuantization extends
 				context.startActivity(intent);
 			}
 		}
-		
+
 	}
 
 	private List<String> ScalarQuantization(Context context2) {
@@ -173,6 +174,9 @@ public class AsyncTask_ScalarQuantization extends
 
 			Bitmap resized = Bitmap.createScaledBitmap(myBitmap, IMG_WIDTH,
 					IMG_HEIGHT, false);
+
+			resized = getimage24BitsTO8Bits(resized, 32);
+
 			Log.i("aaaaaa",
 					"resized" + resized.getWidth() + "," + resized.getHeight());
 			fireOnImage(resized);
@@ -240,6 +244,48 @@ public class AsyncTask_ScalarQuantization extends
 		System.out.println("argb: " + Integer.toHexString(pixel) + " hex: "
 				+ hex);
 
+	}
+
+	public static Bitmap getimage24BitsTO8Bits(Bitmap image, int bitoffset) {
+		int width = image.getWidth();
+		int height = image.getHeight();
+		Bitmap return_image = Bitmap.createBitmap(width, height,
+				image.getConfig());
+		int Alpha, Red, Green, Blue;
+		int pixel;
+
+		for (int x = 0; x < width; ++x) {
+			for (int y = 0; y < height; ++y) {
+
+				pixel = image.getPixel(x, y);
+				Alpha = Color.alpha(pixel);
+				Red = Color.red(pixel);
+				Green = Color.green(pixel);
+				Blue = Color.blue(pixel);
+				
+				Red = ((Red + (bitoffset / 2))
+						- ((Red + (bitoffset / 2)) % bitoffset) - 1);
+				if (Red < 0) {
+					Red = 0;
+				}
+				Green = ((Green + (bitoffset / 2))
+						- ((Green + (bitoffset / 2)) % bitoffset) - 1);
+				if (Green < 0) {
+					Green = 0;
+				}
+				Blue = ((Blue + (bitoffset / 2))
+						- ((Blue + (bitoffset / 2)) % bitoffset) - 1);
+				if (Blue < 0) {
+					Blue = 0;
+				}
+
+
+				return_image
+						.setPixel(x, y, Color.argb(Alpha, Red, Green, Blue));
+			}
+		}
+
+		return return_image;
 	}
 
 	private static Map sortByComparator(Map unsortMap) {

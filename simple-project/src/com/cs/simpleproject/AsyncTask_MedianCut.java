@@ -19,6 +19,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -35,7 +36,8 @@ public class AsyncTask_MedianCut extends
 	List<String> a = new LinkedList<String>();
 	Bitmap sub1 = null, sub2 = null, sub3 = null, sub4 = null;
 
-	public AsyncTask_MedianCut(Context context, String path,int level, int section) {
+	public AsyncTask_MedianCut(Context context, String path, int level,
+			int section) {
 		super();
 		this.context = context;
 		this.file_path = path;
@@ -64,7 +66,7 @@ public class AsyncTask_MedianCut extends
 	@Override
 	protected void onPostExecute(List<String> result) {
 		progressDialog.cancel();
-		
+
 		ArrayList<String> result1 = new ArrayList<String>(result);
 		if (level == 0) {
 			if (section == 1) {
@@ -179,7 +181,7 @@ public class AsyncTask_MedianCut extends
 			Log.i("aaaaaa",
 					"resized" + resized.getWidth() + "," + resized.getHeight());
 
-			// image24BitsTO8Bits();
+			resized = getimage24BitsTO8Bits(resized, 32);
 
 			getImageHashSet(resized);
 
@@ -221,6 +223,8 @@ public class AsyncTask_MedianCut extends
 		return getlist;
 	}
 
+	
+	
 	public void getImageHashSet(Bitmap image) {
 		int w = image.getWidth();
 		int h = image.getHeight();
@@ -240,6 +244,48 @@ public class AsyncTask_MedianCut extends
 		}
 	}
 
+	public static Bitmap getimage24BitsTO8Bits(Bitmap image, int bitoffset) {
+		int width = image.getWidth();
+		int height = image.getHeight();
+		Bitmap return_image = Bitmap.createBitmap(width, height,
+				image.getConfig());
+		int Alpha, Red, Green, Blue;
+		int pixel;
+
+		for (int x = 0; x < width; ++x) {
+			for (int y = 0; y < height; ++y) {
+
+				pixel = image.getPixel(x, y);
+				Alpha = Color.alpha(pixel);
+				Red = Color.red(pixel);
+				Green = Color.green(pixel);
+				Blue = Color.blue(pixel);
+				
+				Red = ((Red + (bitoffset / 2))
+						- ((Red + (bitoffset / 2)) % bitoffset) - 1);
+				if (Red < 0) {
+					Red = 0;
+				}
+				Green = ((Green + (bitoffset / 2))
+						- ((Green + (bitoffset / 2)) % bitoffset) - 1);
+				if (Green < 0) {
+					Green = 0;
+				}
+				Blue = ((Blue + (bitoffset / 2))
+						- ((Blue + (bitoffset / 2)) % bitoffset) - 1);
+				if (Blue < 0) {
+					Blue = 0;
+				}
+
+
+				return_image
+						.setPixel(x, y, Color.argb(Alpha, Red, Green, Blue));
+			}
+		}
+
+		return return_image;
+	}
+	
 	private static Map sortByComparator(Map unsortMap) {
 
 		List list = new LinkedList(unsortMap.entrySet());
