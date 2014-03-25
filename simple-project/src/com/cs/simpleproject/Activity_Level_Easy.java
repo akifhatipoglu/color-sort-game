@@ -301,7 +301,7 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,
 			break;
 		case DragEvent.ACTION_DRAG_ENDED:
 			Log.d("aaa", "Drag ended");
-			System.out.println("Drag anded");
+			System.out.println("Drag ended");
 			break;
 		default:
 			break;

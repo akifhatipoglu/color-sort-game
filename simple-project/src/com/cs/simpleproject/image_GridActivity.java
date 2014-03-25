@@ -76,7 +76,7 @@ public class image_GridActivity extends image_AbsListViewBaseActivity {
 		}
 		if (algorithm == 2) {
 			AsyncTask_MedianCut task = new AsyncTask_MedianCut(this,
-					imageUrls1.get(position));
+					imageUrls1.get(position), level, section);
 			task.execute();
 
 		}

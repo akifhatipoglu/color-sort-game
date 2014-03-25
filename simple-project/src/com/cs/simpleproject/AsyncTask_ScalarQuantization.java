@@ -126,13 +126,6 @@ public class AsyncTask_ScalarQuantization extends
 				intent.putExtra("section", section);
 				context.startActivity(intent);
 			}
-			/*
-			 * Intent intent = new Intent(context,image_GridActivity.class);
-			 * intent.putExtra("result", result1);
-			 * intent.putExtra("level",level);
-			 * intent.putExtra("section",section);
-			 * context.startActivity(intent);
-			 */
 		}
 		if (level == 2) {
 			if (section == 1) {
@@ -163,15 +156,8 @@ public class AsyncTask_ScalarQuantization extends
 				intent.putExtra("section", section);
 				context.startActivity(intent);
 			}
-
-			/*
-			 * Intent intent = new Intent(context,image_GridActivity.class);
-			 * intent.putExtra("result", result1);
-			 * intent.putExtra("level",level);
-			 * intent.putExtra("section",section);
-			 * context.startActivity(intent);
-			 */
 		}
+		
 	}
 
 	private List<String> ScalarQuantization(Context context2) {

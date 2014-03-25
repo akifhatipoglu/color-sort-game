@@ -16,6 +16,7 @@ import java.util.TreeMap;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -28,15 +29,18 @@ public class AsyncTask_MedianCut extends
 	private ProgressDialog progressDialog;
 	private static int IMG_WIDTH = 400;
 	private static int IMG_HEIGHT = 300;
+	private int level = 0, section = 0;
 	String file_path = "";
 	Set<String> s = new HashSet<String>();
 	List<String> a = new LinkedList<String>();
 	Bitmap sub1 = null, sub2 = null, sub3 = null, sub4 = null;
 
-	public AsyncTask_MedianCut(Context context, String path) {
+	public AsyncTask_MedianCut(Context context, String path,int level, int section) {
 		super();
 		this.context = context;
 		this.file_path = path;
+		this.level = level;
+		this.section = section;
 
 	}
 
@@ -60,6 +64,101 @@ public class AsyncTask_MedianCut extends
 	@Override
 	protected void onPostExecute(List<String> result) {
 		progressDialog.cancel();
+		
+		ArrayList<String> result1 = new ArrayList<String>(result);
+		if (level == 0) {
+			if (section == 1) {
+				Intent intent = new Intent(context, Activity_Level_Easy.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);
+			}
+			if (section == 2) {
+				Intent intent = new Intent(context, Activity_Level_Easy2.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);
+			}
+			if (section == 3) {
+				Intent intent = new Intent(context, Activity_Level_Easy2.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);
+			}
+			if (section == 4) {
+				Intent intent = new Intent(context, Activity_Level_Easy3.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);
+			}
+		}
+		if (level == 1) {
+			if (section == 1) {
+				Intent intent = new Intent(context, Activity_Level_Medium.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);
+			}
+			if (section == 2) {
+				Intent intent = new Intent(context,
+						Activity_Level_Medium1.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);
+			}
+			if (section == 3) {
+				Intent intent = new Intent(context,
+						Activity_Level_Medium2.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);
+			}
+			if (section == 4) {
+				Intent intent = new Intent(context,
+						Activity_Level_Medium3.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);
+			}
+		}
+		if (level == 2) {
+			if (section == 1) {
+				Intent intent = new Intent(context, Activity_Level_Hard.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);
+			}
+			if (section == 2) {
+				Intent intent = new Intent(context, Activity_Level_Hard1.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);
+			}
+			if (section == 3) {
+				Intent intent = new Intent(context, Activity_Level_Hard2.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);
+			}
+			if (section == 4) {
+				Intent intent = new Intent(context, Activity_Level_Hard3.class);
+				intent.putExtra("result", result1);
+				intent.putExtra("level", level);
+				intent.putExtra("section", section);
+				context.startActivity(intent);
+			}
+		}
 
 	}
 
@@ -113,7 +212,7 @@ public class AsyncTask_MedianCut extends
 
 			getSubImage(resized);
 
-			recursiveMediancut(12, resized);
+			recursiveMediancut(15, resized);
 
 			getlist = new ArrayList<String>(sortedMap.keySet());
 			// burada sorted aþaðýdaki map olacak
