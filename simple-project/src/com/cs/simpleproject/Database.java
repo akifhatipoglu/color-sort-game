@@ -44,7 +44,7 @@ public class Database extends SQLiteOpenHelper {
 
 	public List<String> getAllScore() {
 		List<String> list = new ArrayList<String>();
-		String selectQuery = "SELECT  * FROM animals";
+		String selectQuery = "SELECT  * FROM animals  ORDER BY Score DESC ";
 		SQLiteDatabase database = this.getWritableDatabase();
 		Cursor cursor = database.rawQuery(selectQuery, null);
 		cursor.moveToFirst();

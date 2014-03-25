@@ -169,8 +169,22 @@ public class AsyncTask_ScalarQuantization extends
 			Log.i("aaaaaa", "içerdeyim");
 			Bitmap myBitmap = BitmapFactory.decodeFile(image_path
 					.getAbsolutePath());
-			IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.1);
-			IMG_WIDTH = (int) (myBitmap.getWidth() * 0.1);
+			if (myBitmap.getHeight() < 1000 && myBitmap.getWidth() < 1000) {
+				IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.1);
+				IMG_WIDTH = (int) (myBitmap.getWidth() * 0.1);
+			}
+
+			if ((myBitmap.getHeight() > 1000 && myBitmap.getHeight() < 2000)
+					&& (myBitmap.getWidth() > 1000 && myBitmap.getWidth() < 2000)) {
+				IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.05);
+				IMG_WIDTH = (int) (myBitmap.getWidth() * 0.05);
+			}
+
+			if ((myBitmap.getHeight() > 2000 && myBitmap.getHeight() < 4000)
+					&& (myBitmap.getWidth() > 2000 && myBitmap.getWidth() < 4000)) {
+				IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.01);
+				IMG_WIDTH = (int) (myBitmap.getWidth() * 0.01);
+			}
 
 			Bitmap resized = Bitmap.createScaledBitmap(myBitmap, IMG_WIDTH,
 					IMG_HEIGHT, false);
@@ -262,7 +276,7 @@ public class AsyncTask_ScalarQuantization extends
 				Red = Color.red(pixel);
 				Green = Color.green(pixel);
 				Blue = Color.blue(pixel);
-				
+
 				Red = ((Red + (bitoffset / 2))
 						- ((Red + (bitoffset / 2)) % bitoffset) - 1);
 				if (Red < 0) {
@@ -278,7 +292,6 @@ public class AsyncTask_ScalarQuantization extends
 				if (Blue < 0) {
 					Blue = 0;
 				}
-
 
 				return_image
 						.setPixel(x, y, Color.argb(Alpha, Red, Green, Blue));

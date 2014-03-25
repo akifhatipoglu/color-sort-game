@@ -223,8 +223,6 @@ public class AsyncTask_MedianCut extends
 		return getlist;
 	}
 
-	
-	
 	public void getImageHashSet(Bitmap image) {
 		int w = image.getWidth();
 		int h = image.getHeight();
@@ -260,7 +258,7 @@ public class AsyncTask_MedianCut extends
 				Red = Color.red(pixel);
 				Green = Color.green(pixel);
 				Blue = Color.blue(pixel);
-				
+
 				Red = ((Red + (bitoffset / 2))
 						- ((Red + (bitoffset / 2)) % bitoffset) - 1);
 				if (Red < 0) {
@@ -277,7 +275,6 @@ public class AsyncTask_MedianCut extends
 					Blue = 0;
 				}
 
-
 				return_image
 						.setPixel(x, y, Color.argb(Alpha, Red, Green, Blue));
 			}
@@ -285,7 +282,7 @@ public class AsyncTask_MedianCut extends
 
 		return return_image;
 	}
-	
+
 	private static Map sortByComparator(Map unsortMap) {
 
 		List list = new LinkedList(unsortMap.entrySet());
