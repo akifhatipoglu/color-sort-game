@@ -110,6 +110,8 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[0] += "" + l1.getId();
 							System.out.println("l1 b1");
+							l1.setBackground(bt1.getBackground());
+							bt1.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[0] += "" + l2.getId();
@@ -131,6 +133,8 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[1] += "" + l1.getId();
 							System.out.println("l1 b2");
+							l1.setBackground(bt2.getBackground());
+							bt2.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[1] += "" + l2.getId();
@@ -152,6 +156,8 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[2] += "" + l1.getId();
 							System.out.println("l1 b3");
+							l1.setBackground(bt3.getBackground());
+							bt3.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[2] += "" + l2.getId();
@@ -173,6 +179,8 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[3] += "" + l1.getId();
 							System.out.println("l1 b4");
+							l1.setBackground(bt4.getBackground());
+							bt4.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[3] += "" + l2.getId();
@@ -193,6 +201,9 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,
 				}
 			}
 		}
+	
+		
+		
 	}
 
 	@Override
@@ -267,7 +278,7 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,
 				isGameFinished++;
 				Toast.makeText(this, "Score: " + PUAN, Toast.LENGTH_SHORT)
 						.show();
-				if (isGameFinished == 4) {
+				if (isGameFinished == 3) {
 					finishTime = System.currentTimeMillis() - startTime;
 					finishTime = finishTime / 60;
 					System.out.println(finishTime);
