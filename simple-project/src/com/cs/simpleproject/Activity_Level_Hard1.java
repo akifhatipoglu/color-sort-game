@@ -169,6 +169,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[0] += "" + l1.getId();
 							System.out.println("l1 b1");
+							l1.setBackground(bt1.getBackground());
+							bt1.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[0] += "" + l2.getId();
@@ -189,6 +191,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 5) {
 							compare[0] += "" + l6.getId();
 							System.out.println("l6 b1");
+							l6.setBackground(bt1.getBackground());
+							bt1.setOnTouchListener(null);
 						}
 						if (j == 6) {
 							compare[0] += "" + l7.getId();
@@ -222,6 +226,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[1] += "" + l1.getId();
 							System.out.println("l1 b2");
+							l1.setBackground(bt2.getBackground());
+							bt2.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[1] += "" + l2.getId();
@@ -242,6 +248,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 5) {
 							compare[1] += "" + l6.getId();
 							System.out.println("l6 b2");
+							l6.setBackground(bt2.getBackground());
+							bt2.setOnTouchListener(null);
 						}
 						if (j == 6) {
 							compare[1] += "" + l7.getId();
@@ -275,6 +283,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[2] += "" + l1.getId();
 							System.out.println("l1 b3");
+							l1.setBackground(bt3.getBackground());
+							bt3.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[2] += "" + l2.getId();
@@ -295,6 +305,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 5) {
 							compare[2] += "" + l6.getId();
 							System.out.println("l6 b3");
+							l6.setBackground(bt3.getBackground());
+							bt3.setOnTouchListener(null);
 						}
 						if (j == 6) {
 							compare[2] += "" + l7.getId();
@@ -328,6 +340,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[3] += "" + l1.getId();
 							System.out.println("l1 b4");
+							l1.setBackground(bt4.getBackground());
+							bt4.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[3] += "" + l2.getId();
@@ -348,6 +362,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 5) {
 							compare[3] += "" + l6.getId();
 							System.out.println("l6 b4");
+							l6.setBackground(bt4.getBackground());
+							bt4.setOnTouchListener(null);
 						}
 						if (j == 6) {
 							compare[3] += "" + l7.getId();
@@ -381,6 +397,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[4] += "" + l1.getId();
 							System.out.println("l1 b4");
+							l1.setBackground(bt5.getBackground());
+							bt5.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[4] += "" + l2.getId();
@@ -401,6 +419,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 5) {
 							compare[4] += "" + l6.getId();
 							System.out.println("l6 b4");
+							l6.setBackground(bt5.getBackground());
+							bt5.setOnTouchListener(null);
 						}
 						if (j == 6) {
 							compare[4] += "" + l7.getId();
@@ -434,6 +454,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[5] += "" + l1.getId();
 							System.out.println("l1 b4");
+							l1.setBackground(bt6.getBackground());
+							bt6.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[5] += "" + l2.getId();
@@ -454,6 +476,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 5) {
 							compare[5] += "" + l6.getId();
 							System.out.println("l6 b4");
+							l6.setBackground(bt6.getBackground());
+							bt6.setOnTouchListener(null);
 						}
 						if (j == 6) {
 							compare[5] += "" + l7.getId();
@@ -487,6 +511,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[6] += "" + l1.getId();
 							System.out.println("l1 b4");
+							l1.setBackground(bt7.getBackground());
+							bt7.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[6] += "" + l2.getId();
@@ -507,6 +533,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 5) {
 							compare[6] += "" + l6.getId();
 							System.out.println("l6 b4");
+							l6.setBackground(bt7.getBackground());
+							bt7.setOnTouchListener(null);
 						}
 						if (j == 6) {
 							compare[6] += "" + l7.getId();
@@ -540,6 +568,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[7] += "" + l1.getId();
 							System.out.println("l1 b4");
+							l1.setBackground(bt8.getBackground());
+							bt8.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[7] += "" + l2.getId();
@@ -560,6 +590,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 5) {
 							compare[7] += "" + l6.getId();
 							System.out.println("l6 b4");
+							l6.setBackground(bt8.getBackground());
+							bt8.setOnTouchListener(null);
 						}
 						if (j == 6) {
 							compare[7] += "" + l7.getId();
@@ -593,6 +625,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[8] += "" + l1.getId();
 							System.out.println("l1 b4");
+							l1.setBackground(bt9.getBackground());
+							bt9.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[8] += "" + l2.getId();
@@ -613,6 +647,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 5) {
 							compare[8] += "" + l6.getId();
 							System.out.println("l6 b4");
+							l6.setBackground(bt9.getBackground());
+							bt9.setOnTouchListener(null);
 						}
 						if (j == 6) {
 							compare[8] += "" + l7.getId();
@@ -646,6 +682,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[9] += "" + l1.getId();
 							System.out.println("l1 b4");
+							l1.setBackground(bt10.getBackground());
+							bt10.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[9] += "" + l2.getId();
@@ -666,6 +704,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 5) {
 							compare[9] += "" + l6.getId();
 							System.out.println("l6 b4");
+							l6.setBackground(bt10.getBackground());
+							bt10.setOnTouchListener(null);
 						}
 						if (j == 6) {
 							compare[9] += "" + l7.getId();
@@ -699,6 +739,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[10] += "" + l1.getId();
 							System.out.println("l1 b4");
+							l1.setBackground(bt11.getBackground());
+							bt11.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[10] += "" + l2.getId();
@@ -719,6 +761,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 5) {
 							compare[10] += "" + l6.getId();
 							System.out.println("l6 b4");
+							l6.setBackground(bt11.getBackground());
+							bt11.setOnTouchListener(null);
 						}
 						if (j == 6) {
 							compare[10] += "" + l7.getId();
@@ -752,6 +796,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 0) {
 							compare[11] += "" + l1.getId();
 							System.out.println("l1 b4");
+							l1.setBackground(bt12.getBackground());
+							bt12.setOnTouchListener(null);
 						}
 						if (j == 1) {
 							compare[11] += "" + l2.getId();
@@ -772,6 +818,8 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 						if (j == 5) {
 							compare[11] += "" + l6.getId();
 							System.out.println("l6 b4");
+							l6.setBackground(bt12.getBackground());
+							bt12.setOnTouchListener(null);
 						}
 						if (j == 6) {
 							compare[11] += "" + l7.getId();
@@ -935,7 +983,7 @@ public class Activity_Level_Hard1 extends Activity implements OnTouchListener,
 				isGameFinished++;
 				Toast.makeText(this, "Score: " + PUAN, Toast.LENGTH_SHORT)
 						.show();
-				if (isGameFinished == 12) {
+				if (isGameFinished == 10) {
 					finishTime = System.currentTimeMillis() - startTime;
 					finishTime = finishTime / 60;
 					System.out.println(finishTime);
