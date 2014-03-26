@@ -893,7 +893,7 @@ public class Activity_Level_Hard extends Activity implements OnTouchListener,
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
 			v.startDrag(null, shadowBuilder, v, 0);
-			v.setVisibility(View.INVISIBLE);
+			// v.setVisibility(View.INVISIBLE);
 			return true;
 		} else {
 			return false;

@@ -10,10 +10,12 @@
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+         >
         <activity
             android:label="@string/app_name"
-            android:name=".Activity_Main" >
+            android:name=".Activity_Main"
+            android:screenOrientation="portrait" >
             <intent-filter >
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,14 +24,16 @@
         </activity>
         
         <activity android:name=".Activity_NewGame"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.NewGame" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".Activity_SelectAlgorithm"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.SelectAlgorithm" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -37,50 +41,65 @@
         </activity>
          <activity
             android:name=".image_GridActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
          <activity
             android:name=".Scalar"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
          <activity
             android:name=".image_HomeActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name" 
+            android:screenOrientation="portrait"/>
          
         <activity
             android:name=".Activity_Level_Easy"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
          <activity
             android:name=".Activity_Level_Easy2"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
           <activity
             android:name=".Activity_Level_Easy3"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
           <activity
             android:name=".Activity_Level_Medium"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
           <activity
             android:name=".Activity_Level_Medium1"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
            <activity
             android:name=".Activity_Level_Medium2"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
             <activity
             android:name=".Activity_Level_Medium3"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
              <activity
             android:name=".Activity_Level_Hard"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
              <activity
             android:name=".Activity_Level_Hard1"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
              <activity
             android:name=".Activity_Level_Hard2"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
              <activity
             android:name=".Activity_Level_Hard3"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
          <activity
             android:name=".Activity_Score"
-            android:label="@string/app_name" />
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
           
          
         

@@ -98,6 +98,11 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,
 		LinearLayout l4 = (LinearLayout) findViewById(R.id.laoyut_4);
 		l4.setOnDragListener(this);
 
+		Log.i("cccc", "" + l1.getId());
+		Log.i("cccc", "" + l2.getId());
+		Log.i("cccc", "" + l3.getId());
+		Log.i("cccc", "" + l4.getId());
+
 		color_layout = (LinearLayout) findViewById(R.id.color_layout);
 
 		for (int j = 0; j < getlist.size(); j++) {
@@ -201,9 +206,7 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,
 				}
 			}
 		}
-	
-		
-		
+
 	}
 
 	@Override
@@ -231,6 +234,8 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,
 			View view = (View) dragevent.getLocalState();
 			ViewGroup owner = (ViewGroup) view.getParent();
 			LinearLayout container = (LinearLayout) layoutview;
+
+			Log.i("cccc", "" + container.getId());
 
 			String c1 = "" + view.getId();
 			String c2 = "" + view.getId();
@@ -325,7 +330,7 @@ public class Activity_Level_Easy extends Activity implements OnTouchListener,
 		if (event.getAction() == MotionEvent.ACTION_DOWN) {
 			DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
 			v.startDrag(null, shadowBuilder, v, 0);
-			v.setVisibility(View.INVISIBLE);
+			// v.setVisibility(View.INVISIBLE);
 			return true;
 		} else {
 			return false;

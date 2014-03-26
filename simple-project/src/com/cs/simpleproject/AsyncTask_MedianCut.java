@@ -171,35 +171,35 @@ public class AsyncTask_MedianCut extends
 		if (image_path.exists()) {
 			Bitmap myBitmap = BitmapFactory.decodeFile(image_path
 					.getAbsolutePath());
-			
-			Log.i("bbb", "width: "+myBitmap.getWidth()+" height: "+myBitmap.getHeight());
-			
+
+			Log.i("bbb", "width: " + myBitmap.getWidth() + " height: "
+					+ myBitmap.getHeight());
+
 			if (myBitmap.getHeight() < 1000 && myBitmap.getWidth() < 1000) {
-			int values = (int) (myBitmap.getWidth() * 0.01);
-			IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.01 * values);
-			values = (int) (myBitmap.getHeight() * 0.01);
-			IMG_WIDTH = (int) (myBitmap.getWidth() * 0.01 * values);
+				int values = (int) (myBitmap.getWidth() * 0.01);
+				IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.01 * values);
+				values = (int) (myBitmap.getHeight() * 0.01);
+				IMG_WIDTH = (int) (myBitmap.getWidth() * 0.01 * values);
 			}
-			
-			if ((myBitmap.getHeight() > 1000 && myBitmap.getHeight() <=2000)
-					&& (myBitmap.getWidth() > 1000 && myBitmap.getWidth() <=2000)) {
+
+			if ((myBitmap.getHeight() > 1000 && myBitmap.getHeight() <= 2000)
+					&& (myBitmap.getWidth() > 1000 && myBitmap.getWidth() <= 2000)) {
 				int values = (int) (myBitmap.getWidth() * 0.01);
 				IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.0025 * values);
 				values = (int) (myBitmap.getHeight() * 0.01);
 				IMG_WIDTH = (int) (myBitmap.getWidth() * 0.0025 * values);
 			}
-			
+
 			if ((myBitmap.getHeight() > 2000 && myBitmap.getHeight() < 4000)
 					&& (myBitmap.getWidth() > 2000 && myBitmap.getWidth() < 4000)) {
-				
+
 				int values = (int) (myBitmap.getWidth() * 0.01);
 				IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.001 * values);
 				values = (int) (myBitmap.getHeight() * 0.01);
 				IMG_WIDTH = (int) (myBitmap.getWidth() * 0.001 * values);
 			}
-			
-			
-			Log.i("bbb", "width: "+IMG_WIDTH+" height: "+IMG_HEIGHT);
+
+			Log.i("bbb", "width: " + IMG_WIDTH + " height: " + IMG_HEIGHT);
 
 			Bitmap resized = Bitmap.createScaledBitmap(myBitmap, IMG_WIDTH,
 					IMG_HEIGHT, false);

@@ -21,7 +21,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 public class AsyncTask_ScalarQuantization extends
 		AsyncTask<String, String, List<String>> {
@@ -170,16 +169,17 @@ public class AsyncTask_ScalarQuantization extends
 			Log.i("aaaaaa", "içerdeyim");
 			Bitmap myBitmap = BitmapFactory.decodeFile(image_path
 					.getAbsolutePath());
-			
-			Log.i("bbb", "width: "+myBitmap.getWidth()+" height: "+myBitmap.getHeight());
-			
+
+			Log.i("bbb", "width: " + myBitmap.getWidth() + " height: "
+					+ myBitmap.getHeight());
+
 			if (myBitmap.getHeight() < 1000 && myBitmap.getWidth() < 1000) {
 				IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.1);
 				IMG_WIDTH = (int) (myBitmap.getWidth() * 0.1);
 			}
 
-			if ((myBitmap.getHeight() > 1000 && myBitmap.getHeight() <=2000)
-					&& (myBitmap.getWidth() > 1000 && myBitmap.getWidth() <=2000)) {
+			if ((myBitmap.getHeight() > 1000 && myBitmap.getHeight() <= 2000)
+					&& (myBitmap.getWidth() > 1000 && myBitmap.getWidth() <= 2000)) {
 				IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.025);
 				IMG_WIDTH = (int) (myBitmap.getWidth() * 0.025);
 			}
@@ -189,10 +189,9 @@ public class AsyncTask_ScalarQuantization extends
 				IMG_HEIGHT = (int) (myBitmap.getHeight() * 0.01);
 				IMG_WIDTH = (int) (myBitmap.getWidth() * 0.01);
 			}
-			
-			Log.i("bbb", "width: "+IMG_WIDTH+" height: "+IMG_HEIGHT);
-			
-			
+
+			Log.i("bbb", "width: " + IMG_WIDTH + " height: " + IMG_HEIGHT);
+
 			Bitmap resized = Bitmap.createScaledBitmap(myBitmap, IMG_WIDTH,
 					IMG_HEIGHT, false);
 
